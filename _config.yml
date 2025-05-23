@@ -7,7 +7,7 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
+locale                   : "ko-KR"
 site_theme               : "default"
 title                    : "GUKHO.J's Data_Info"
 title_separator          : "-"
