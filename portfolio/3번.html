@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정국호 | HTML & CSS 이력서</title>
+    <style>
+        /* ================== 공통 스타일 ================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* ================== 상단 네비게이션 바 스타일 ================== */
+        header {
+            background-color: #24292e;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0 40px;
+        }
+        .center-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 0;
+        }
+        nav li { margin: 0 15px; }
+        nav a { color: white; text-decoration: none; font-size: 16px; font-weight: bold; padding: 10px; transition: color 0.3s; }
+        nav a:hover { color: #66b2ff; }
+        #language {
+            background-color: #24292e; color: white; text-decoration: none; font-weight: bold;
+            font-size: 15px; border: 1px solid white; padding: 7px 12px; border-radius: 5px;
+            transition: all 0.3s; cursor: pointer;
+        }
+        #language:hover { background-color: white; color: #24292e; }
+
+        /* ================== 가로 와이드형 2단 이력서 스타일 ================== */
+        .resume-container {
+            max-width: 1200px;
+            width: 90%;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px auto;
+            display: flex;
+        }
+
+        /* --- 1. 왼쪽 프로필 정보 컬럼 --- */
+        .profile-column {
+            width: 30%;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-right: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 100x;
+            border-radius: 20%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-column h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            color: #2c3e50;
+        }
+        .profile-column .job-title {
+            margin: 0 0 25px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+        .contact-info li {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .contact-info strong {
+            font-weight: bold;
+            color: #000;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 2. 오른쪽 상세 정보 컬럼 --- */
+        .details-column {
+            width: 70%;
+            padding: 40px;
+            display: flex; /* 내용과 버튼을 세로로 배치하기 위함 */
+            flex-direction: column;
+        }
+        .sections-wrapper {
+            flex-grow: 1; /* 내용 부분이 가능한 모든 공간을 차지하도록 함 */
+        }
+        .resume-section {
+            display: none; /* 모든 섹션을 기본적으로 숨김 */
+        }
+        .resume-section.active {
+            display: block; /* active 클래스가 붙은 섹션만 보여줌 */
+        }
+        .details-column h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column p {
+            margin: 0;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 1em; /* 문단 첫 줄 들여쓰기 */
+        }
+        .details-column p + p {
+            margin-top: 1.5em; /* 문단과 문단 사이 간격 */
+        }
+
+        /* ▼▼▼ 추가된 네비게이션 버튼 스타일 ▼▼▼ */
+        .navigation-buttons {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .navigation-buttons button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #34495e;
+        }
+
+        .section_list li{
+            margin-bottom: 10px;
+
+        }
+        a.none {
+            color: darkblue;
+
+        }
+        a.none:hover{
+            color : grey;
+            text-decoration: underline;
+            
+        }
+        img.size{
+            width: 600px;
+            height:200x;
+            border-radius: 5%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        video.size{
+            width: 300px;
+            height:200x;
+            border-radius: 5%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        table.table{
+        width: 80%; /* 테이블 너비 지정 */
+        margin: 20px auto; /* 상하 20px, 좌우 자동(중앙 정렬) */
+        border-collapse: collapse; /* 셀 경계선을 하나로 합침 */
+        }
+        th, td {
+            padding: 12px 10px; /* 셀 안쪽 여백 */
+            text-align: left; /* 글자 왼쪽 정렬 */
+            border: 1px solid black; /* 회색 경계선 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== 상단 네비게이션 바 ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">나의 고된 행군</a></li>
+                <div class="center-links">
+                    <li><a href="../about.html">자기소개서</a></li>
+                    <li><a href="../portfolio.html">포트폴리오</a></li>
+                </div>
+                <li><a id="language" href="3번_en.html">영어</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <div class="resume-container">
+        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
+            <h1>정국호</h1>
+            <p class="job-title">데이터 분석 & AI</p>
+            <ul class="contact-info">   
+                <li>📞 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
+                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/" target="_blank">여기로오세요~</a></li>
+                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+            </ul>
+        </div>
+
+        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <div class="details-column">
+            <h2>표정 연습 애플리케이션</h2>
+            <div class="sections-wrapper">
+                <section class="resume-section">
+                    <h3>프로젝트 주제</h3>
+                    <p>표정 연습 애플리케이션 – 표정을 표현을 어려워 하는 사람들에게 재미와 연습을 동시에 제공 할 수 있는 앱을 제작</p>
+                    <br><h3>프로젝트의 어려움 </h3>
+                    <p>한국인이라는 인종과 화남,기쁨,당황,슬픔이라는 적은 감정</p>
+                    <br><h3>프로젝트 정보 </h3>
+                    <ul class = "section_list">
+                        <li>프로젝트 일정 : 2025.06.16 ~ 2025.07.10</li>
+                        <li>프로젝트 인원 : 5명</li>
+                        <li>개인 기여도 : 60% (모델 학습,전처리,Flask,Flutter)</li>
+                        <li>관련 스킬 : CV, CNN , Flutter , Flask , DB</li>
+                        <li> 세부스킬 : Yolo , postgresql , Pre-trained CNN </li>
+                    </ul>
+                </section>
+
+                <section class="resume-section">
+                    <h3>다양한 사전학습 모델 사용</h3>
+                    <ul class = "section_list">
+                        <li>ResNet50</li>
+                        <li>MobileNet v2 -> v3</li>
+                        <li>EfficentNetB0 -> B2 -> B3</li>
+                        <li>최고 성능 + CBAM모듈</li>
+                        <li>VIT</li>
+                        <li>SWIN</li>
+                    </ul><br>
+                    <h3>사전 학습 모델 성능 비교</h3>
+                    <table class = "table">
+                        <tr>
+                            <th>모델</th>
+                            <th>파라미터수</th>
+                            <th>연산량(FLOPs)</th>
+                            <th>F1-Score</th>
+                            <th>정확도</th>
+                        </tr>
+                        <tr>
+                            <td>MobileNet</td>
+                            <td>4.2M</td>
+                            <td>0.3B</td>
+                            <td>0.80</td>
+                            <td>80.0%</td>
+                        </tr>
+                        <tr>
+                            <td>EfficientNet</td>
+                            <td>5.3M</td>
+                            <td>0.39B</td>
+                            <td>0.85</td>
+                            <td>85.4%</td>
+                        </tr>
+                        <tr>
+                            <td>CBAM + EfficientNet</td>
+                            <td>5.8M</td>
+                            <td>0.45B</td>
+                            <td>0.85</td>
+                            <td>85.3%</td>
+                        </tr>
+                        <tr>
+                            <td>ResNet50</td>
+                            <td>25.6M</td>
+                            <td>4.1B</td>
+                            <td>0.82</td>
+                            <td>81.7%</td>
+                        </tr>
+                        <tr>
+                            <td>SWIN</td>
+                            <td>28M</td>
+                            <td>4.5B</td>
+                            <td>0.85</td>
+                            <td>85.4%</td>
+                        </tr>
+                        <tr>
+                            <td>ViT (Vision Transformer)</td>
+                            <td>85M</td>
+                            <td>55.4B</td>
+                            <td>0.86</td>
+                            <td>85.7%</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section class="resume-section">
+                    <h3>최종 기반 모델 -> EfficentNetB0</h3>
+                    <p>경량화 모델이면서 성능이 가장 좋은 모델 </p><br>
+                    <h3>문제점 </h3>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림1.png"></p>
+                    <p>성능이 좋지만 일반화 성능이 너무 떨어짐 처음에는 과적합 의심 파인튜닝을 단계적으로 진행 했음에도 지속적으로 같은 문제가 발생</p> 
+                </section>
+                
+                <section class="resume-section">
+                    <h3>해결 방법</h3>
+                    <p>
+                        B0은 조금의 복잡성이 있으면 제대로된 분류를 하지 못한다는 논문을 채택, B2로 재설정 후 검증 진행했더니 성능은 조금 좋아졌지만 아직까지도 불안정한 성능을 보여줌 
+                    </p>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림3.png"><br >B0에서 이미지 증강</p>
+                    <p style ="text-align: center;"> <img class ="size" src = "../files/3번_그림2.png"><br>B3에서 이미지 증강</p>
+                    <p>최종적으로 B3 모델로 사용하여 모델 완성</p>
+                </section>
+                <section class="resume-section">
+                    <h3>서비스 기능 - 표정 연습 애플리케이션</h3>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림4.png"><br >전체 흐름도</p>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림5.png"> <br >기본 연습모드</p>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림6.png"> <br >문장으로 표정연습</p>
+                </section>
+                <section class="resume-section">
+                    <h3>시연 영상</h3>
+                    <p style ="text-align: center;"><video  class ="size" src="../files/3번_영상1.mp4" controls></video></p><br>
+                    <h3>최종 인사이트</h3>
+                    <ul class = "section_list">
+                        <li>모델의 일반화 성능 검증의 중요성과 실제 환경 적용 시 발생할 수 있는 문제에 대한 깊이 있는 이해를 얻었습니다. </li>
+                        <li>특히, 다양한 인종과 다양한 표정, 그리고 다양한 각도의 이미지를 수집하여 더욱 정확한 성능의 모델을 개발할 수 있다는 중요한 인사이트를 얻었습니다</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- ▼▼▼ 추가된 네비게이션 버튼 ▼▼▼ -->
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ▼▼▼ 추가된 JavaScript 코드 ▼▼▼ -->
+    <script>
+        // DOM이 완전히 로드된 후 스크립트 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            // 필요한 요소들을 변수에 저장
+            const sections = document.querySelectorAll('.resume-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSectionIndex = 0; // 현재 보여지는 섹션의 인덱스
+
+            // 특정 인덱스의 섹션을 보여주는 함수
+            function showSection(index) {
+                // 모든 섹션에서 'active' 클래스를 제거하여 숨김
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                // 현재 인덱스에 해당하는 섹션에만 'active' 클래스를 추가하여 보여줌
+                sections[index].classList.add('active');
+            }
+
+            // '다음' 버튼 클릭 이벤트
+            nextBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 증가시키고, 마지막 섹션을 넘어가면 0으로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // '이전' 버튼 클릭 이벤트
+            prevBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 감소시키고, 0보다 작아지면 마지막 섹션 인덱스로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // 페이지가 처음 로드될 때 첫 번째 섹션을 보여줌
+            showSection(currentSectionIndex);
+        });
+    </script>
+</body>
+</html>

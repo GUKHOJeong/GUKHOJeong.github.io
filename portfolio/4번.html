@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정국호 | HTML & CSS 이력서</title>
+    <style>
+        /* ================== 공통 스타일 ================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* ================== 상단 네비게이션 바 스타일 ================== */
+        header {
+            background-color: #24292e;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0 40px;
+        }
+        .center-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 0;
+        }
+        nav li { margin: 0 15px; }
+        nav a { color: white; text-decoration: none; font-size: 16px; font-weight: bold; padding: 10px; transition: color 0.3s; }
+        nav a:hover { color: #66b2ff; }
+        #language {
+            background-color: #24292e; color: white; text-decoration: none; font-weight: bold;
+            font-size: 15px; border: 1px solid white; padding: 7px 12px; border-radius: 5px;
+            transition: all 0.3s; cursor: pointer;
+        }
+        #language:hover { background-color: white; color: #24292e; }
+
+        /* ================== 가로 와이드형 2단 이력서 스타일 ================== */
+        .resume-container {
+            max-width: 1200px;
+            width: 90%;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px auto;
+            display: flex;
+        }
+
+        /* --- 1. 왼쪽 프로필 정보 컬럼 --- */
+        .profile-column {
+            width: 30%;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-right: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 100x;
+            border-radius: 20%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-column h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            color: #2c3e50;
+        }
+        .profile-column .job-title {
+            margin: 0 0 25px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+        .contact-info li {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .contact-info strong {
+            font-weight: bold;
+            color: #000;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 2. 오른쪽 상세 정보 컬럼 --- */
+        .details-column {
+            width: 70%;
+            padding: 40px;
+            display: flex; /* 내용과 버튼을 세로로 배치하기 위함 */
+            flex-direction: column;
+        }
+        .sections-wrapper {
+            flex-grow: 1; /* 내용 부분이 가능한 모든 공간을 차지하도록 함 */
+        }
+        .resume-section {
+            display: none; /* 모든 섹션을 기본적으로 숨김 */
+        }
+        .resume-section.active {
+            display: block; /* active 클래스가 붙은 섹션만 보여줌 */
+        }
+        .details-column h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column p {
+            margin: 0;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 1em; /* 문단 첫 줄 들여쓰기 */
+        }
+        .details-column p + p {
+            margin-top: 1.5em; /* 문단과 문단 사이 간격 */
+        }
+
+        /* ▼▼▼ 추가된 네비게이션 버튼 스타일 ▼▼▼ */
+        .navigation-buttons {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .navigation-buttons button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #34495e;
+        }
+
+        .section_list li{
+            margin-bottom: 10px;
+
+        }
+
+        .section_list_1 li{
+            margin-bottom: 20px;
+
+        }
+        a.none {
+            color: darkblue;
+            text-decoration: none;
+
+        }
+        a.none:hover{
+            color : grey;
+            text-decoration: underline;
+            
+        }
+        img.size{
+            width: 200px;
+            height:100x;
+            border-radius: 5%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        video.size{
+            width: 600px;
+            height:400px;
+            border-radius: 5%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== 상단 네비게이션 바 ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">나의 고된 행군</a></li>
+                <div class="center-links">
+                    <li><a href="../about.html">자기소개서</a></li>
+                    <li><a href="../portfolio.html">포트폴리오</a></li>
+                </div>
+                <li><a id="language" href="4번_en.html">영어</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <div class="resume-container">
+        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
+            <h1>정국호</h1>
+            <p class="job-title">데이터 분석 & AI</p>
+            <ul class="contact-info">   
+                <li>📞 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
+                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/" target="_blank">여기로오세요~</a></li>
+                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+            </ul>
+        </div>
+
+        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <div class="details-column">
+            <h2>AI 기반 뉴스 요약 및 토픽 분석 서비스</h2>
+            <div class="sections-wrapper">
+                <section class="resume-section">
+                    <h3>프로젝트 주제</h3>
+                    <p>복잡한 뉴스 속에서도 핵심 이슈와 트렌드를 빠르고 정확하게 파악할 수 있는 서비스 개발</p>
+                    <br><h3>프로젝트 정보 </h3>
+                    <ul class = "section_list">
+                        <li>프로젝트 일정 : 2025.08.08 ~ 2025.08.27</li>
+                        <li>프로젝트 인원 : 4명</li>
+                        <li>개인 기여도 : 50% (코드 작성, 기능구현, 모델 학습)</li>
+                        <li>
+                            Backend: Python, Flask, Flask-SocketIO
+                        </li>
+                        <li>
+                            Frontend: HTML, CSS, JavaScript
+                        </li>
+                        <li>
+                            NLP & Data Analysis
+                        </li>
+                            <ul>
+                                <li>Transformers (Hugging Face): 뉴스 요약</li>
+                                <li>Mecab: 한국어 형태소 분석</li>
+                                <li>Scikit-learn: 토픽 모델링 (LDA)</li>
+                                <li>WordCloud: 데이터 시각화</li>
+                                <li>Crawling: Selenium, BeautifulSoup4</li>
+                            </ul>
+                    </ul>
+                </section>
+
+                <section class="resume-section">
+                    <h3>주요기능</h3>
+                    <ul class = "section_list_1">
+                        <li><strong>실시간 뉴스 데이터 수집:</strong> 사용자가 입력한 키워드와 기간에 맞춰 네이버 뉴스 데이터를 실시간으로 크롤링.</li>
+                        <li><strong>AI 기반 자동 요약:</strong> Transformers 라이브러리의 요약 모델을 활용하여 각 뉴스 기사의 핵심 내용을 자동으로 요약.</li>
+                        <li><strong>토픽 모델링 및 분류:</strong> Mecab과 Scikit-learn의 LDA 모델을 사용하여 수집된 뉴스들을 주요 주제별로 자동 분류.</li>
+                        <li><strong>데이터 시각화:</strong> 각 토픽별 핵심 키워드를 시각적으로 보여주는 워드클라우드 자동 생성.</li>
+                        <li><strong>실시간 처리 과정 시각화:</strong> 데이터 수집부터 분석까지의 전 과정을 프로그레스 바로 시각화하여 사용자에게 실시간 피드백 제공.</li>
+                    </ul>
+                </section>
+
+                <section class="resume-section">
+                    <h3>시도한 모델 </h3>
+                    <ul class = "section_list_1">
+                        <li>KoBert 기반 요약 모델</li>
+                        <li>T5-small 모델</li>
+                        <li>T5-base 모델</li>
+                    </ul><br>
+                    <h3>최종 모델 - T5-base모델</h3>
+                    <p>허깅페이스 내 추출 모델을 통해서 크롤링 데이터를 내용을 추출 진행 후 eenzeenee/t5-base-korean-summarization에서 파인 튜닝을 진행
+                    </p><br>
+                    <p><a href = "https://huggingface.co/fodmrldg/news_summarization_model" class = "none">모델 주소 (사용모델)</a></p><br>
+
+                    <br><h3>최종 모델 선정 이유</h3>
+                    <ul class = "section_list_1">
+                        <li>KoBert -> 긴 입력 토큰을 처리할 수 있는 장점이 있었으나, 실제 요약 결과물의 성능이 다소 불안정함</li>
+                        <li>T5 -> T5 모델은 "요약:"과 같은 접두사(prefix)를 입력해야 하는 제약이 있었지만, KoBERT에 비해 일관성 있고 높은 품질의 요약문을 생성 </li>
+                        <li>small -> Base  -> small은 Kobert에 비해 높은 성능을 보여주지만 일반화 능력과 충분한 리소스가 있기에 T5-base모델로 최종 선정함</li>
+                    </ul>
+                </section>
+                
+                <section class="resume-section">
+                    <h3>문제점</h3>
+                    <p>
+                        같은 기자가 같은 내용의 뉴스를 3~4개씩 작성하여 데이터 중복 발생
+                    </p>
+                    <br>
+                    <h3>해결방법</h3>
+                    <p> 기자 별 또는 같은 언로사별로 그룹핑 후 유사도를 구한 후 중복 뉴스를 제거하는 방식으로 구현 예정</p><br>
+                    <h3>최종 인사이트</h3>
+                    <ul class = "section_list">
+                        <li>많은 뉴스를 수집 및 분석을 하는 과정에 오랜 시간이 소모하여 유저가 오랜 시간을 머물러야 하는 문제점이 존재함</li>
+                        <li>하지만 이는 데이터베이스와 연결하여 이전에 검색한 기록을 다시 볼 때는 바로 확인이 가능하도록 구현 예정</li>
+                    </ul>
+                </section>
+
+                <section class="resume-section">
+                    <h3>서비스 구조</h3>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/4번_그림1.png"><br >Index.html</p>
+                    <p style ="text-align: center;"><img class ="size" src = "../files/4번_그림2.png"><br >result.html</p>
+                     <h3>시연영상</h3>
+                    <p style ="text-align: center;"><video  class ="size" src="../files/4번_영상.mp4" controls></video></p><br>
+                </section>
+            </div>
+            
+            <!-- ▼▼▼ 추가된 네비게이션 버튼 ▼▼▼ -->
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ▼▼▼ 추가된 JavaScript 코드 ▼▼▼ -->
+    <script>
+        // DOM이 완전히 로드된 후 스크립트 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            // 필요한 요소들을 변수에 저장
+            const sections = document.querySelectorAll('.resume-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSectionIndex = 0; // 현재 보여지는 섹션의 인덱스
+
+            // 특정 인덱스의 섹션을 보여주는 함수
+            function showSection(index) {
+                // 모든 섹션에서 'active' 클래스를 제거하여 숨김
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                // 현재 인덱스에 해당하는 섹션에만 'active' 클래스를 추가하여 보여줌
+                sections[index].classList.add('active');
+            }
+
+            // '다음' 버튼 클릭 이벤트
+            nextBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 증가시키고, 마지막 섹션을 넘어가면 0으로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // '이전' 버튼 클릭 이벤트
+            prevBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 감소시키고, 0보다 작아지면 마지막 섹션 인덱스로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // 페이지가 처음 로드될 때 첫 번째 섹션을 보여줌
+            showSection(currentSectionIndex);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정국호 | HTML & CSS 이력서</title>
+    <style>
+        /* ================== 공통 스타일 ================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* ================== 상단 네비게이션 바 스타일 ================== */
+        header {
+            background-color: #24292e;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0 40px;
+        }
+        .center-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            padding: 0;
+        }
+        nav li { margin: 0 15px; }
+        nav a { color: white; text-decoration: none; font-size: 16px; font-weight: bold; padding: 10px; transition: color 0.3s; }
+        nav a:hover { color: #66b2ff; }
+        #language {
+            background-color: #24292e; color: white; text-decoration: none; font-weight: bold;
+            font-size: 15px; border: 1px solid white; padding: 7px 12px; border-radius: 5px;
+            transition: all 0.3s; cursor: pointer;
+        }
+        #language:hover { background-color: white; color: #24292e; }
+
+        /* ================== 가로 와이드형 2단 이력서 스타일 ================== */
+        .resume-container {
+            max-width: 1200px;
+            width: 90%;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px auto;
+            display: flex;
+        }
+
+        /* --- 1. 왼쪽 프로필 정보 컬럼 --- */
+        .profile-column {
+            width: 30%;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-right: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 100x;
+            border-radius: 20%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .profile-column h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            color: #2c3e50;
+        }
+        .profile-column .job-title {
+            margin: 0 0 25px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+        .contact-info li {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .contact-info strong {
+            font-weight: bold;
+            color: #000;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 2. 오른쪽 상세 정보 컬럼 --- */
+        .details-column {
+            width: 70%;
+            padding: 40px;
+            display: flex; /* 내용과 버튼을 세로로 배치하기 위함 */
+            flex-direction: column;
+        }
+        .sections-wrapper {
+            flex-grow: 1; /* 내용 부분이 가능한 모든 공간을 차지하도록 함 */
+        }
+        .resume-section {
+            display: none; /* 모든 섹션을 기본적으로 숨김 */
+        }
+        .resume-section.active {
+            display: block; /* active 클래스가 붙은 섹션만 보여줌 */
+        }
+        .details-column h2 {
+            font-size: 24px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .details-column p {
+            margin: 0;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 1em; /* 문단 첫 줄 들여쓰기 */
+        }
+        .details-column p + p {
+            margin-top: 1.5em; /* 문단과 문단 사이 간격 */
+        }
+
+        /* ▼▼▼ 추가된 네비게이션 버튼 스타일 ▼▼▼ */
+        .navigation-buttons {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .navigation-buttons button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #34495e;
+        }
+
+        .section_list li{
+            margin-bottom: 10px;
+
+        }
+        a.none {
+            color: darkblue;
+
+        }
+        a.none:hover{
+            color : grey;
+            text-decoration: underline;
+            
+        }
+        img.size{
+            width: 600px;
+            height:200x;
+            border-radius: 5%;
+            border: 5px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== 상단 네비게이션 바 ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">나의 고된 행군</a></li>
+                <div class="center-links">
+                    <li><a href="../about.html">자기소개서</a></li>
+                    <li><a href="../portfolio.html">포트폴리오</a></li>
+                </div>
+                <li><a id="language" href="2번_en.html">영어</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <div class="resume-container">
+        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
+            <h1>정국호</h1>
+            <p class="job-title">데이터 분석 & AI</p>
+            <ul class="contact-info">   
+                <li>📞 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
+                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/" target="_blank">여기로오세요~</a></li>
+                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+            </ul>
+        </div>
+
+        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <div class="details-column">
+            <h2>해양 어획량 분석 프로젝트</h2>
+            <div class="sections-wrapper">
+                <section class="resume-section">
+                    <h3>프로젝트 주제</h3>
+                    <p>해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축</p>
+                    <br><h3>프로젝트의 어려움 </h3>
+                    <p>1. 어획량 데이터의 심한 변동성으로 분석 신뢰도 확보 어려움. '어획률' 지표 변경 시도했으나 변동성 완전 해소는 어려움.</p><br>
+                    <p>2. 데이터 복잡성으로 다양한 예측 모델 적용에도 RMSE/MAE 지표 높아 예측 정확도 현저히 낮음.</p>
+                    <br><h3>프로젝트 정보 </h3>
+                    <ul class = "section_list">
+                        <li>프로젝트 일정 : 2025.04.30 ~ 2025.05.16</li>
+                        <li>프로젝트 인원 : 4명</li>
+                        <li>개인 기여도 : 70% (코드 작성, 로드맵작성, 가설검증)</li>
+                        <li>관련 스킬 : 딥러닝, 머신러닝, 시계열</li>
+                        <li> 세부스킬 : seaborn, matplotlib, CNN, LSTM, XGB</li>
+                    </ul>
+                </section>
+
+                <section class="resume-section">
+                    <h3>데이터 접근</h3>
+                    <ol class = "section_list">
+                        <li>실제 위성 사진을 통한 예측</li>
+                        <li>해양사이트에서 제공되어지는 위성 사진 내 수치데이터</li>
+                        <li>기상청에서 제공되는 수치데이터</li>
+                        <li><a href = "https://drive.google.com/drive/folders/1sbcTbpWap7L0V6zI9bR7Hhy7_Q3AeFeW" class = "none">데이터 저장소</a></li>
+                    </ol>
+                    <br>
+                    <h3>데이터 특정 전처리</h3>
+                    <ol class = "section_list">
+                        <li>CNN을 통해 시계열 패턴 파악 </li>
+                        <li>도메인 기반 특성 선택</li>
+                        <li>PCA 기반 차원 축소 </li>
+                        <li>단계적 선택법을 통한 특성 선택</li>
+                    </ol>
+                </section>
+
+                <section class="resume-section">
+                    <h3>문제 (너무 낮은 성능)</h3>
+                    <p>실제 성능이 너무 낮은 문제를 보여줌, 어획량-> 어획률로 변경하였지만 지속적인 낮은 성능을 보여줌</p>
+                    <p><img class ="size" src = "../files/2번_그림1.png"></p>
+                    <p><img class ="size" src = "../files/2번_그림2.png"></p>
+                    
+                </section>
+                
+                <section class="resume-section">
+                    <h3>해결 방법</h3>
+                    <p>
+                        1. 실제 어획량 및 어획률 데이터가 불안정해서 좋지 못한 성능을 보여 줌  -></p><p>이유를 찾아보니 정책 및 인위적으로 어획에 변화를 주었음 
+                    </p>
+                    <p><img class ="size" src = "../files/2번_그림3.png"></p>
+                    <p><img class ="size" src = "../files/2번_그림4.png"></p>
+                </section>
+                <section class="resume-section">
+                    <h3>해결 방법</h3>
+                    <p>
+                        2. 논문을 통해 데이터수가 파라미터 수보다 적으면 과적합 및 훈련이 불가능 할 수 있다고 판단 </p><p>->ML모델(XGB,RF) 사용
+                    </p>
+                    <p><img class ="size" src = "../files/2번_그림5.png"></p>
+                    <p><img class ="size" src = "../files/2번_그림6.png"></p>
+                </section>
+                <section class="resume-section">
+                    <h3>최종 인사이트</h3>
+                    <ul class = "section_list">
+                        <li>해양 환경 변화가 실제 다양한 어류의 어획량 및 어획률에 큰 영향을 주지 못한다는 결론을 얻었습니다. </li>
+                        <li>더 나아가, 복잡하고 현실적인 데이터 구조와 인위적인 개입(조업 및 정책) 등 예측하기 어려운 비선형적인 요인들이 많아 기계학습 모델만으로는 어획량을 예측하는 데 한계를 가진다는 최종 결론을 도출했습니다. </li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- ▼▼▼ 추가된 네비게이션 버튼 ▼▼▼ -->
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ▼▼▼ 추가된 JavaScript 코드 ▼▼▼ -->
+    <script>
+        // DOM이 완전히 로드된 후 스크립트 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            // 필요한 요소들을 변수에 저장
+            const sections = document.querySelectorAll('.resume-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSectionIndex = 0; // 현재 보여지는 섹션의 인덱스
+
+            // 특정 인덱스의 섹션을 보여주는 함수
+            function showSection(index) {
+                // 모든 섹션에서 'active' 클래스를 제거하여 숨김
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                // 현재 인덱스에 해당하는 섹션에만 'active' 클래스를 추가하여 보여줌
+                sections[index].classList.add('active');
+            }
+
+            // '다음' 버튼 클릭 이벤트
+            nextBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 증가시키고, 마지막 섹션을 넘어가면 0으로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // '이전' 버튼 클릭 이벤트
+            prevBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 감소시키고, 0보다 작아지면 마지막 섹션 인덱스로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // 페이지가 처음 로드될 때 첫 번째 섹션을 보여줌
+            showSection(currentSectionIndex);
+        });
+    </script>
+</body>
+</html>

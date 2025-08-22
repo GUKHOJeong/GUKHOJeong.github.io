@@ -54,7 +54,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin: 40px auto;
-            display: flex; /* ★핵심: 좌우 2단 배치를 위해 flex 적용 */
+            display: flex;
         }
 
         /* --- 1. 왼쪽 프로필 정보 컬럼 --- */
@@ -98,7 +98,7 @@
             margin-bottom: 20px;
             font-size: 14px;
             color: #333;
-            line-height: 1.5; /* 줄간격 추가 */
+            line-height: 1.5;
         }
         .contact-info strong {
             font-weight: bold;
@@ -112,17 +112,21 @@
             text-decoration: underline;
         }
 
-
         /* --- 2. 오른쪽 상세 정보 컬럼 --- */
         .details-column {
             width: 70%;
             padding: 40px;
+            display: flex; /* 내용과 버튼을 세로로 배치하기 위함 */
+            flex-direction: column;
         }
-        .details-column section {
-            margin-bottom: 30px;
+        .sections-wrapper {
+            flex-grow: 1; /* 내용 부분이 가능한 모든 공간을 차지하도록 함 */
         }
-        .details-column section:last-child {
-            margin-bottom: 0;
+        .resume-section {
+            display: none; /* 모든 섹션을 기본적으로 숨김 */
+        }
+        .resume-section.active {
+            display: block; /* active 클래스가 붙은 섹션만 보여줌 */
         }
         .details-column h2 {
             font-size: 24px;
@@ -132,32 +136,39 @@
             margin-top: 0;
             margin-bottom: 20px;
         }
-        .entry {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        .entry:last-child {
-            margin-bottom: 0;
-        }
-        .entry .date {
-            width: 150px;
-            color: #555;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        .entry .details {
-            flex: 1;
-        }
-        .entry .details strong {
-            font-size: 16px;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .entry .details p {
+        .details-column p {
             margin: 0;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 1em; /* 문단 첫 줄 들여쓰기 */
         }
+        .details-column p + p {
+            margin-top: 1.5em; /* 문단과 문단 사이 간격 */
+        }
+
+        /* ▼▼▼ 추가된 네비게이션 버튼 스타일 ▼▼▼ */
+        .navigation-buttons {
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .navigation-buttons button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        .navigation-buttons button:hover {
+            background-color: #34495e;
+        }
+
     </style>
 </head>
 <body>
@@ -171,7 +182,7 @@
                     <li><a href="about.html">자기소개서</a></li>
                     <li><a href="portfolio.html">포트폴리오</a></li>
                 </div>
-                <li><a id="language" href="index.html">영어</a></li>
+                <li><a id="language" href="about_en.html">영어</a></li>
             </ul>
         </nav>
     </header>
@@ -180,10 +191,9 @@
     <div class="resume-container">
         <!-- 1. 왼쪽 프로필 정보 컬럼 -->
         <div class="profile-column">
-            <img src="files\photo.png" alt="프로필 사진" class="profile-pic">
+            <img src="files/photo.png" alt="프로필 사진" class="profile-pic">
             <h1>정국호</h1>
             <p class="job-title">데이터 분석 & AI</p>
-            <!-- ▼▼▼ 수정된 부분 ▼▼▼ -->
             <ul class="contact-info">   
                 <li>📞 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
                 <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
@@ -192,64 +202,85 @@
                 <li>🔗 <strong>Github:</strong> <a href="https://github.com/" target="_blank">여기로오세요~</a></li>
                 <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
             </ul>
-            <!-- ▲▲▲ 수정된 부분 ▲▲▲ -->
         </div>
 
         <!-- 2. 오른쪽 상세 정보 컬럼 -->
         <div class="details-column">
-            <section>
-                <h2>1. 성장 과정 및 가치관</h2>
-                <div class="entry">
-                    <p>
-                         대학교 재학 중, 저는 데이터 분석이라는 분야에서 새로운 전환점을 맞이했습니다. 문과 전공자로서 처음 접한 데이터 분석은 낯설고 도전적인 영역이었으나, 데이터를 통해 세상을 이해하고 문제를 해결하는 힘에 깊이 매료되었습니다. 이를 계기로 학문에 대한 뜨거운 열정을 되찾았고, 데이터 기반의 문제 해석 능력 함양에 몰입하게 되었습니다. 새로운 분야에 대한 갈증을 해소하기 위해 관련 수업을 끊임없이 수강하고 국비 교육 과정까지 활용하며 적극적으로 역량을 개발했습니다. 이러한 주도적인 학습 경험은 저에게 '모르는 것을 배우고 성장하는 과정 자체의 즐거움과 가치'를 깨닫게 해주었으며, 끊임없이 도전하고 배우는 자세를 갖추는 데 중요한 밑거름이 되었습니다.
+            <!-- ▼▼▼ 섹션들을 감싸는 래퍼 추가 ▼▼▼ -->
+            <div class="sections-wrapper">
+                <section class="resume-section">
+                    <h2>1. 성장 과정 및 가치관</h2>
+                    <p>대학교 재학 중, 저는 데이터 분석이라는 분야에서 새로운 전환점을 맞이했습니다. 문과 전공자로서 처음 접한 데이터 분석은 낯설고 도전적인 영역이었으나, 데이터를 통해 세상을 이해하고 문제를 해결하는 힘에 깊이 매료되었습니다. 이를 계기로 학문에 대한 뜨거운 열정을 되찾았고, 데이터 기반의 문제 해석 능력 함양에 몰입하게 되었습니다.</p>
+                    <p>새로운 분야에 대한 갈증을 해소하기 위해 관련 수업을 끊임없이 수강하고 국비 교육 과정까지 활용하며 적극적으로 역량을 개발했습니다. 이러한 주도적인 학습 경험은 저에게 '모르는 것을 배우고 성장하는 과정 자체의 즐거움과 가치'를 깨닫게 해주었으며, 끊임없이 도전하고 배우는 자세를 갖추는 데 중요한 밑거름이 되었습니다.</p>
+                </section>
 
-                    </p>
-                </div>
-            </section>
+                <section class="resume-section">
+                    <h2>2. 지원동기</h2>
+                    <p>데이터 분석은 제게 새로운 전환점이자 문제 해결에 대한 깊은 즐거움을 선사했습니다. 단순히 숫자를 다루는 것을 넘어, 데이터를 통해 세상을 이해하고 성장하는 데 기여하며 깊은 애정을 갖게 되었고, 자연스럽게 데이터 기반 문제 해석 능력 함양에 집중하게 되었습니다.</p>
+                    <p>부트캠프에서 ML/DL, CV, LLM 등 다양한 인공지능 분야를 학습하며 AI 모델 개발의 전 과정을 경험했습니다. 이 과정에서 저는 제가 가진 데이터 분석 및 AI 모델 개발 역량이 사용자에게 실제 가치를 제공하는 애플리케이션을 만드는 데 핵심적인 역할을 할 수 있음을 확신했습니다. 특히 복잡한 데이터를 구조화하고 의미 있는 인사이트를 도출하여, 실제 비즈니스 문제에 적용하는 과정에서 가장 큰 보람을 느꼈습니다.</p>
+                    <p>저는 데이터를 통해 사용자 경험을 혁신하고 비즈니스 성장을 이끌고자 하는 열정을 가지고 있습니다. 이러한 열정을 바탕으로 귀사에서 정교한 추천 시스템과 예측 모델 개발을 통해 서비스의 효율성과 사용자 만족도를 극대화하고, 나아가 산업의 새로운 트렌드를 이끌어가는 데 핵심적인 역할을 하고 싶습니다.</p>
+                </section>
 
-            <section>
-                <h2>2. 지원동기</h2>
-                <div class="entry">
-                    <p>
-                         데이터 분석은 제게 새로운 전환점이자 문제 해결에 대한 깊은 즐거움을 선사하며, 데이터를 통해 세상을 이해하고 성장하는 데 기여했습니다. 이는 데이터를 향한 깊은 애정으로 이어져 데이터 기반 문제 해석 능력 함양에 집중하게 했습니다.
-
-  부트캠프에서 ML/DL, CV, LLM 등 다양한 인공지능 분야를 학습하며 AI 모델 개발의 전 과정을 경험했습니다. 특히 ML 모델 서빙, 추천 모델,시계열 데이터 개발이라는 아이 트럭의 주요 업무를 확인하며, 제가 쌓아온 역량과 지식이 귀사의 혁신적인 중고트럭 통합 거래 플랫폼 고도화에 직접적으로 기여할 수 있음을 확신했습니다.
-
- 아이 트럭이 미래의 트렌드를 읽고 새로운 장을 만들어가는 '열정 있는 인재'를 찾는다는 점에 깊이 공감합니다. 저는 데이터를 통해 사용자들이 실제 가치를 체감할 수 있는 애플리케이션을 만들고자 하는 열정을 가지고 있습니다. 이러한 저의 데이터 분석 및 AI 모델 개발 경험을 바탕으로, 아이 트럭에서 정교한 추천 시스템과 예측 모델 개발을 통해 서비스의 효율성과 사용자 만족도를 극대화하고, 나아가 산업의 새로운 트렌드를 이끌어가는 데 핵심적인 역할을 하고 싶습니다.
- 
-
-                    </p>
-                </div>
-            </section>
-
-            <section>
-                <h2>3. 성공경험</h2>
-                <div class="entry">
-                    <p>
-                         기후 변화에 따른 해양 어획량 분포 변화 분석 프로젝트는 해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축하는 데 중점을 두었습니다. 하지만 어획량 데이터의 심한 변동성과 복잡성으로 인해 RMSE와 MAE 지표가 높게 나타나 예측 정확도 확보에 어려움을 겪었습니다.
-
- 이러한 수치적 한계에도 불구하고, 저희 팀은 포기하지 않고 국내외 연구 논문과 사례를 심층적으로 조사하며 문제에 파고들었습니다. 이 과정에서 초기 예상과는 달리, 수온 및 해양 환경 변화보다는 인간의 직접적인 조업 활동 및 정책 개입이 어획량 변화의 주된 원인임을 파악하는 핵심적인 인사이트를 얻었습니다.
-
- 이러한 통찰은 단순히 예측 모델의 정확도를 높이는 것을 넘어, 어획량 관리 및 해양 자원 보존을 위한 실질적인 정책 수립 방향을 제시하는 중요한 전환점이 되었습니다. 불확실한 데이터 속에서도 핵심 원인을 규명하고, 문제의 본질을 깊이 이해하는 시야를 넓힐 수 있었습니다. 궁극적으로 이 프로젝트를 통해 저는 데이터의 내재된 한계를 통찰하고, 복잡한 문제의 본질을 파악하여 실질적인 변화를 이끌어낼 수 있는 데이터 기반의 의사결정 역량을 기를 수 있었습니다.
-
-                    </p>
-                </div>
-            </section>  
-            <section>
-                <h2>4. 직무를 위한 준비</h2>
-                <div class="entry">
-                    <p>
-                         대학교에서 데이터 분석 기초를 다지고 데이터분석전문가(ADsP), SQL개발자(SQLD), 빅데이터분석기사 자격증을 취득하며 문제 해결 역량을 체계적으로 강화했습니다. 이 과정에서 기본적인 통계 지식을 탄탄히 다지고 꼼꼼한 데이터 분석 역량을 길렀습니다.
-
- 이후 AI 모델 개발 부트캠프에서 ML/DL, 컴퓨터 비전(CV), LLM 등 다양한 AI 기술을 심층적으로 학습하며 모델 설계부터 튜닝, 배포까지 전 과정을 경험했습니다. 특히 Numpy, Pandas, Scikit-learn 등 주요 라이브러리를 활용한 실무 경험을 쌓으며, 상용 서비스 및 제품 개발에 필요한 역량을 효과적으로 구축했습니다.
-
- 이를 바탕으로 개발했던 '감정 기반 콘텐츠 추천 시스템' 프로젝트에서는 데이터 전처리부터 모델링 그리고 MLOps를 활용한 서비스화까지 주도했습니다. 이 경험은 추천 모델 개발 역량과 실제 서비스에 ML 모델을 적용하고 서빙하는 능력을 증명합니다. 이러한 데이터 분석, AI 모델 개발 및 상용 서비스화 경험은 아이 트럭의 ML 모델 서빙, 추천 모델 및 시계열 데이터 개발 업무에 직접적으로 기여하여 서비스의 혁신과 성과 창출에 기여할 준비가 되어 있습니다.
-
-                    </p>
-                </div>
-            </section>  
+                <section class="resume-section">
+                    <h2>3. 성공경험</h2>
+                    <p>기후 변화에 따른 해양 어획량 분포 변화 분석 프로젝트는 해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축하는 데 중점을 두었습니다. 하지만 어획량 데이터의 심한 변동성과 복잡성으로 인해 RMSE와 MAE 지표가 높게 나타나 예측 정확도 확보에 어려움을 겪었습니다.</p>
+                    <p>이러한 수치적 한계에도 불구하고, 저희 팀은 포기하지 않고 국내외 연구 논문과 사례를 심층적으로 조사하며 문제에 파고들었습니다. 이 과정에서 초기 예상과는 달리, 수온 및 해양 환경 변화보다는 인간의 직접적인 조업 활동 및 정책 개입이 어획량 변화의 주된 원인임을 파악하는 핵심적인 인사이트를 얻었습니다.</p>
+                    <p>이러한 통찰은 단순히 예측 모델의 정확도를 높이는 것을 넘어, 어획량 관리 및 해양 자원 보존을 위한 실질적인 정책 수립 방향을 제시하는 중요한 전환점이 되었습니다. 불확실한 데이터 속에서도 핵심 원인을 규명하고, 문제의 본질을 깊이 이해하는 시야를 넓힐 수 있었습니다. 궁극적으로 이 프로젝트를 통해 저는 데이터의 내재된 한계를 통찰하고, 복잡한 문제의 본질을 파악하여 실질적인 변화를 이끌어낼 수 있는 데이터 기반의 의사결정 역량을 기를 수 있었습니다.</p>
+                </section>
+                
+                <section class="resume-section">
+                    <h2>4. 직무를 위한 준비</h2>
+                    <p>대학교에서 데이터 분석 기초를 다지고 데이터분석전문가(ADsP), SQL개발자(SQLD), 빅데이터분석기사 자격증을 취득하며 문제 해결 역량을 체계적으로 강화했습니다. 이 과정에서 기본적인 통계 지식을 탄탄히 다지고 꼼꼼한 데이터 분석 역량을 길렀습니다.</p>
+                    <p>이후 AI 모델 개발 부트캠프에서 ML/DL, 컴퓨터 비전(CV), LLM 등 다양한 AI 기술을 심층적으로 학습하며 모델 설계부터 튜닝, 배포까지 전 과정을 경험했습니다. 특히 Numpy, Pandas, Scikit-learn 등 주요 라이브러리를 활용한 실무 경험을 쌓으며, 상용 서비스 및 제품 개발에 필요한 역량을 효과적으로 구축했습니다.</p>
+                    <p>이를 바탕으로 개발했던 '표정 연습 애플리케이션' 프로젝트에서는 데이터 전처리부터 모델링 그리고 MLOps를 활용한 서비스화까지 주도했습니다. 이 경험은 추천 모델 개발 역량과 실제 서비스에 ML 모델을 적용하고 서빙하는 능력을 증명합니다. 이러한 데이터 분석, AI 모델 개발 및 상용 서비스화 경험은 ML 모델 서빙, 추천 모델 및 시계열 데이터 개발 업무에 직접적으로 기여하여 서비스의 혁신과 성과 창출에 기여할 준비가 되어 있습니다.</p>
+                </section>
+            </div>
+            
+            <!-- ▼▼▼ 추가된 네비게이션 버튼 ▼▼▼ -->
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
         </div>
     </div>
 
+    <!-- ▼▼▼ 추가된 JavaScript 코드 ▼▼▼ -->
+    <script>
+        // DOM이 완전히 로드된 후 스크립트 실행
+        document.addEventListener('DOMContentLoaded', function() {
+            // 필요한 요소들을 변수에 저장
+            const sections = document.querySelectorAll('.resume-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentSectionIndex = 0; // 현재 보여지는 섹션의 인덱스
+
+            // 특정 인덱스의 섹션을 보여주는 함수
+            function showSection(index) {
+                // 모든 섹션에서 'active' 클래스를 제거하여 숨김
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                // 현재 인덱스에 해당하는 섹션에만 'active' 클래스를 추가하여 보여줌
+                sections[index].classList.add('active');
+            }
+
+            // '다음' 버튼 클릭 이벤트
+            nextBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 증가시키고, 마지막 섹션을 넘어가면 0으로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // '이전' 버튼 클릭 이벤트
+            prevBtn.addEventListener('click', () => {
+                // 현재 인덱스를 1 감소시키고, 0보다 작아지면 마지막 섹션 인덱스로 돌아옴 (순환)
+                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+                showSection(currentSectionIndex);
+            });
+
+            // 페이지가 처음 로드될 때 첫 번째 섹션을 보여줌
+            showSection(currentSectionIndex);
+        });
+    </script>
 </body>
 </html>
