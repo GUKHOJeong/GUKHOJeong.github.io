@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Malgun Gothic',  'Helvetica';
+    background-color: #f0f2f5;
+}
+
+/* ================== 상단 네비게이션 바 스타일 ================== */
+header {
+    background-color: #24292e;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0 40px;
+}
+.center-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    padding: 0;
+}
+nav li { margin: 0 15px; }
+nav a { color: white; text-decoration: none; font-size: 16px; font-weight: bold; padding: 10px; transition: color 0.3s; }
+nav a:hover { color: #66b2ff; }
+#language {
+    background-color: #24292e; color: white; text-decoration: none; font-weight: bold;
+    font-size: 15px; border: 1px solid white; padding: 7px 12px; border-radius: 5px;
+    transition: all 0.3s; cursor: pointer;
+}
+#language:hover { background-color: white; color: #24292e; }
+
+/* ================== 가로 와이드형 2단 이력서 스타일 ================== */
+.resume-container {
+    max-width: 1200px;
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 40px auto;
+    display: flex; /* ★핵심: 좌우 2단 배치를 위해 flex 적용 */
+}
+
+/* --- 1. 왼쪽 프로필 정보 컬럼 --- */
+.profile-column {
+    width: 30%;
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-right: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.profile-pic {
+    width: 150px;
+    height: 100x;
+    border-radius: 20%;
+    border: 5px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.profile-column h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    color: #2c3e50;
+}
+.profile-column .job-title {
+    margin: 0 0 25px 0;
+    font-size: 18px;
+    color: #555;
+}
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+.contact-info li {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5; /* 줄간격 추가 */
+}
+.contact-info strong {
+    font-weight: bold;
+    color: #000;
+}
+.contact-info a {
+    color: #333;
+    text-decoration: none;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- 2. 오른쪽 상세 정보 컬럼 --- */
+.details-column {
+    width: 70%;
+    padding: 40px;
+}
+.details-column section {
+    margin-bottom: 30px;
+}
+.details-column section:last-child {
+    margin-bottom: 0;
+}
+.details-column h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.entry {
+    display: flex;
+    margin-bottom: 20px;
+}
+.entry:last-child {
+    margin-bottom: 0;
+}
+.entry .date {
+    width: 150px;
+    color: #555;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.entry .details {
+    flex: 1;
+}
+.entry .details strong {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+.entry .details p {
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.skill-list {
+    display: grid; /* 그리드 레이아웃으로 변경 */
+    grid-template-columns: 1fr 1fr; /* 2개의 동일한 너비의 컬럼 */
+    gap: 15px 20px; /* 세로 간격 15px, 가로 간격 20px */
+}
+.skill {
+    display: flex;
+    align-items: center;
+}
+.skill-name {
+    width: 110px; /* 스킬 이름 너비 살짝 조정 */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.level-dots {
+    display: flex;
+}
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: #e0e0e0; /* 비어있는 칸 색상 */
+    margin-right: 5px;
+    border-radius: 3px; /* 살짝 둥근 사각형 */
+}
+.dot.filled {
+    background-color: #2c3e50; /* 채워진 칸 색상 */
+}
