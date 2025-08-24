@@ -110,7 +110,7 @@
                 </section>
             </div>
             
-            <!-- ▼▼▼ 추가된 네비게이션 버튼 ▼▼▼ -->
+
             <div class="navigation-buttons">
                 <button id="prevBtn">prev</button>
                 <button id="nextBtn">next</button>
@@ -118,43 +118,6 @@
         </div>
     </div>
 
-    <!-- ▼▼▼ 추가된 JavaScript 코드 ▼▼▼ -->
-    <script>
-        // DOM이 완전히 로드된 후 스크립트 실행
-        document.addEventListener('DOMContentLoaded', function() {
-            // 필요한 요소들을 변수에 저장
-            const sections = document.querySelectorAll('.resume-section');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let currentSectionIndex = 0; // 현재 보여지는 섹션의 인덱스
-
-            // 특정 인덱스의 섹션을 보여주는 함수
-            function showSection(index) {
-                // 모든 섹션에서 'active' 클래스를 제거하여 숨김
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                // 현재 인덱스에 해당하는 섹션에만 'active' 클래스를 추가하여 보여줌
-                sections[index].classList.add('active');
-            }
-
-            // '다음' 버튼 클릭 이벤트
-            nextBtn.addEventListener('click', () => {
-                // 현재 인덱스를 1 증가시키고, 마지막 섹션을 넘어가면 0으로 돌아옴 (순환)
-                currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-                showSection(currentSectionIndex);
-            });
-
-            // '이전' 버튼 클릭 이벤트
-            prevBtn.addEventListener('click', () => {
-                // 현재 인덱스를 1 감소시키고, 0보다 작아지면 마지막 섹션 인덱스로 돌아옴 (순환)
-                currentSectionIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
-                showSection(currentSectionIndex);
-            });
-
-            // 페이지가 처음 로드될 때 첫 번째 섹션을 보여줌
-            showSection(currentSectionIndex);
-        });
-    </script>
+    <script src = "../js/page.js"></script>
 </body>
 </html>
