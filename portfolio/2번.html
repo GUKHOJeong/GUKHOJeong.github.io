@@ -13,10 +13,19 @@
         <nav>
             <ul>
                 <li><a href="../index.html">나의 고된 행군</a></li>
-                <div class="center-links">
-                    <li><a href="../about.html">자기소개서</a></li>
-                    <li><a href="../portfolio.html">포트폴리오</a></li>
-                </div>
+                <li class="center-links">
+                    <a href="../about.html">자기소개서</a>
+                    <a href="../portfolio.html">포트폴리오</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">다운로드</button>
+                        <div class="dropdown-content">
+                            <a href="../files/정국호_이력서.pdf" download>이력서 (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a id="language" href="2번_en.html">영어</a></li>
             </ul>
         </nav>
@@ -36,6 +45,7 @@
                 <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
                 <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">여기로오세요~</a></li>
                 <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>소개:</strong> 호기심과 열정으로 데이터의 깊이를 탐색하는 데이터 사이언티스트 입니다.</li>
             </ul>
         </div>
 
@@ -44,12 +54,7 @@
             <h2>해양 어획량 분석 프로젝트</h2>
             <div class="sections-wrapper">
                 <section class="resume-section">
-                    <h3>프로젝트 주제</h3>
-                    <p>해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축</p>
-                    <br><h3>프로젝트의 어려움 </h3>
-                    <p>1. 어획량 데이터의 심한 변동성으로 분석 신뢰도 확보 어려움. '어획률' 지표 변경 시도했으나 변동성 완전 해소는 어려움.</p><br>
-                    <p>2. 데이터 복잡성으로 다양한 예측 모델 적용에도 RMSE/MAE 지표 높아 예측 정확도 현저히 낮음.</p>
-                    <br><h3>프로젝트 정보 </h3>
+                    <h3>프로젝트 정보 </h3>
                     <ul class = "section_list">
                         <li>프로젝트 일정 : 2025.04.30 ~ 2025.05.16</li>
                         <li>프로젝트 인원 : 4명</li>
@@ -57,6 +62,13 @@
                         <li>관련 스킬 : 딥러닝, 머신러닝, 시계열</li>
                         <li> 세부스킬 : seaborn, matplotlib, CNN, LSTM, XGB</li>
                     </ul>
+                    <br>
+                    <h3>프로젝트 주제</h3>
+                    <p>해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축</p>
+                    <br><h3>프로젝트의 어려움 </h3>
+                    <p>1. 어획량 데이터의 심한 변동성으로 분석 신뢰도 확보 어려움. '어획률' 지표 변경 시도했으나 변동성 완전 해소는 어려움.</p><br>
+                    <p>2. 데이터 복잡성으로 다양한 예측 모델 적용에도 RMSE/MAE 지표 높아 예측 정확도 현저히 낮음.</p>
+                    
                 </section>
 
                 <section class="resume-section">
@@ -119,5 +131,6 @@
     </div>
 
     <script src = "../js/page.js"></script>
+    <script src = "./js/download.js"></script>
 </body>
 </html>
