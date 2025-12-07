@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정국호 | AI & DS</title>
     <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+
+        /* Table Styling */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1e1e1e;
+            font-size: 0.9em;
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .table th {
+            background-color: #252525;
+            color: var(--accent-color);
+        }
+        .table tr:hover {
+            background-color: #2a2a2a;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,118 +96,110 @@
 
         <!-- 2. 오른쪽 상세 정보 컬럼 -->
         <div class="details-column">
-            <h2>표정 연습 애플리케이션</h2>
+            <h2>표정 연습 / 교정 애플리케이션</h2>
+            
             <div class="sections-wrapper">
-                <section class="resume-section">
-                    <h3>프로젝트 주제</h3>
-                    <p>표정 연습 애플리케이션 – 표정을 표현을 어려워 하는 사람들에게 재미와 연습을 동시에 제공 할 수 있는 앱을 제작</p>
-                    <br><h3>프로젝트의 어려움 </h3>
-                    <p>한국인이라는 인종과 화남,기쁨,당황,슬픔이라는 적은 감정</p>
-                    <br><h3>프로젝트 정보 </h3>
-                    <ul class = "section_list">
-                        <li>프로젝트 일정 : 2025.06.16 ~ 2025.07.10</li>
-                        <li>프로젝트 인원 : 5명</li>
-                        <li>개인 기여도 : 60% (모델 학습,전처리,Flask,Flutter)</li>
-                        <li>관련 스킬 : CV, CNN , Flutter , Flask , DB</li>
-                        <li> 세부스킬 : Yolo , postgresql , Pre-trained CNN </li>
-                    </ul>
-                </section>
-
-                <section class="resume-section">
-                    <h3>다양한 사전학습 모델 사용</h3>
-                    <ul class = "section_list">
-                        <li>ResNet50</li>
-                        <li>MobileNet v2 -> v3</li>
-                        <li>EfficentNetB0 -> B2 -> B3</li>
-                        <li>최고 성능 + CBAM모듈</li>
-                        <li>VIT</li>
-                        <li>SWIN</li>
-                    </ul><br>
-                    <h3>사전 학습 모델 성능 비교</h3>
-                    <table class = "table">
-                        <tr>
-                            <th>모델</th>
-                            <th>파라미터수</th>
-                            <th>연산량(FLOPs)</th>
-                            <th>F1-Score</th>
-                            <th>정확도</th>
-                        </tr>
-                        <tr>
-                            <td>MobileNet</td>
-                            <td>4.2M</td>
-                            <td>0.3B</td>
-                            <td>0.80</td>
-                            <td>80.0%</td>
-                        </tr>
-                        <tr>
-                            <td>EfficientNet</td>
-                            <td>5.3M</td>
-                            <td>0.39B</td>
-                            <td>0.85</td>
-                            <td>85.4%</td>
-                        </tr>
-                        <tr>
-                            <td>CBAM + EfficientNet</td>
-                            <td>5.8M</td>
-                            <td>0.45B</td>
-                            <td>0.85</td>
-                            <td>85.3%</td>
-                        </tr>
-                        <tr>
-                            <td>ResNet50</td>
-                            <td>25.6M</td>
-                            <td>4.1B</td>
-                            <td>0.82</td>
-                            <td>81.7%</td>
-                        </tr>
-                        <tr>
-                            <td>SWIN</td>
-                            <td>28M</td>
-                            <td>4.5B</td>
-                            <td>0.85</td>
-                            <td>85.4%</td>
-                        </tr>
-                        <tr>
-                            <td>ViT (Vision Transformer)</td>
-                            <td>85M</td>
-                            <td>55.4B</td>
-                            <td>0.86</td>
-                            <td>85.7%</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <section class="resume-section">
-                    <h3>최종 기반 모델 -> EfficentNetB0</h3>
-                    <p>경량화 모델이면서 성능이 가장 좋은 모델 </p><br>
-                    <h3>문제점 </h3>
-                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림1.png"></p>
-                    <p>성능이 좋지만 일반화 성능이 너무 떨어짐 처음에는 과적합 의심 파인튜닝을 단계적으로 진행 했음에도 지속적으로 같은 문제가 발생</p> 
-                </section>
                 
-                <section class="resume-section">
-                    <h3>해결 방법</h3>
-                    <p>
-                        B0은 조금의 복잡성이 있으면 제대로된 분류를 하지 못한다는 논문을 채택, B2로 재설정 후 검증 진행했더니 성능은 조금 좋아졌지만 아직까지도 불안정한 성능을 보여줌 
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "감정 표현이 서툰 사용자들을 위해, 내 표정을 인식하고 연습할 수 있는 게이미피케이션 앱을 제작했습니다."
                     </p>
-                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림3.png"><br >B0에서 이미지 증강</p>
-                    <p style ="text-align: center;"> <img class ="size" src = "../files/3번_그림2.png"><br>B3에서 이미지 증강</p>
-                    <p>최종적으로 B3 모델로 사용하여 모델 완성</p>
+                    
+                    <!-- 대표 이미지 -->
+                    <img class="size" src="../files/3번_그림5.png" alt="앱 실행 화면">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2025.06.16 ~ 07.10 (4주)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>5명 / 기여도 60%<br>(모델링, 전처리, 서버 구축)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">Python</span><span class="tag">Flutter</span><span class="tag">Flask</span><span class="tag">EfficientNet</span><span class="tag">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 주요 특징</strong>
+                            <span>실시간 표정 인식<br>경량화 모델(Mobile/EfficientNet)</span>
+                        </div>
+                    </div>
                 </section>
+
+                <!-- Section 2: Situation & Task -->
                 <section class="resume-section">
-                    <h3>서비스 기능 - 표정 연습 애플리케이션</h3>
-                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림4.png"><br >전체 흐름도</p>
-                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림5.png"> <br >기본 연습모드</p>
-                    <p style ="text-align: center;"><img class ="size" src = "../files/3번_그림6.png"> <br >문장으로 표정연습</p>
-                </section>
-                <section class="resume-section">
-                    <h3>시연 영상</h3>
-                    <p style ="text-align: center;"><video  class ="size" src="../files/3번_영상1.mp4" controls></video></p><br>
-                    <h3>최종 인사이트</h3>
-                    <ul class = "section_list">
-                        <li>모델의 일반화 성능 검증의 중요성과 실제 환경 적용 시 발생할 수 있는 문제에 대한 깊이 있는 이해를 얻었습니다. </li>
-                        <li>특히, 다양한 인종과 다양한 표정, 그리고 다양한 각도의 이미지를 수집하여 더욱 정확한 성능의 모델을 개발할 수 있다는 중요한 인사이트를 얻었습니다</li>
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 개발 목표</h4>
+                    <p>
+                        표정 짓기를 어려워하는 사람들에게 '재미'와 '훈련'을 동시에 제공하는 앱을 기획했습니다. 한국인의 얼굴 특성과 제한된 감정(기쁨, 화남, 당황, 슬픔)을 정확히 분류하는 것이 핵심이었습니다.
+                    </p>
+
+                    <h4>🚧 기술적 난관 (Difficulties)</h4>
+                    <ul class="section_list">
+                        <li><strong>데이터셋의 한계:</strong> 한국인 얼굴 데이터셋이 부족하고, 미세한 표정 변화를 잡아내기 어려움.</li>
+                        <li><strong>모델 일반화 성능 저하:</strong> 훈련 셋에서는 높은 성능을 보이나, 실제 카메라 테스트 시 조명이나 각도에 따라 인식률이 급격히 떨어지는 과적합(Overfitting) 발생.</li>
                     </ul>
+                    <p><img class="size" src="../files/3번_그림1.png" alt="과적합 문제 그래프"></p>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>🔬 모델 성능 비교 및 선정</h4>
+                    <p>
+                        모바일 환경 탑재를 위해 연산량(FLOPs) 대비 성능이 우수한 경량화 모델을 벤치마킹했습니다.
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>모델</th><th>파라미터 수</th><th>F1-Score</th><th>정확도</th>
+                        </tr>
+                        <tr><td>MobileNet V2</td><td>4.2M</td><td>0.80</td><td>80.0%</td></tr>
+                        <tr><td>ResNet50</td><td>25.6M</td><td>0.82</td><td>81.7%</td></tr>
+                        <tr><td><strong>EfficientNet B0</strong></td><td>5.3M</td><td>0.85</td><td>85.4%</td></tr>
+                        <tr><td>ViT (Transformer)</td><td>85M</td><td>0.86</td><td>85.7%</td></tr>
+                    </table>
+                    <p>
+                        ViT가 가장 성능이 좋지만 파라미터 수가 너무 많아 모바일에 부적합하다고 판단, <strong>EfficientNet</strong>을 최종 베이스 모델로 선정했습니다.
+                    </p>
+
+                    <h4>🔧 트러블슈팅: 일반화 성능 확보</h4>
+                    <ol class="section_list">
+                        <li><strong>모델 복잡도 상향:</strong> EfficientNet B0에서 B3로 모델 체급을 키워 미세한 특징 학습량 증대.</li>
+                        <li><strong>데이터 증강(Augmentation):</strong> 회전, 밝기 조절, 노이즈 추가를 통해 다양한 실제 환경 모사.</li>
+                        <li><strong>분석:</strong> 증강 기법 적용 후 B3 모델에서 검증 손실(Validation Loss)이 안정화됨을 확인.</li>
+                    </ol>
+                    <div style="display:flex; justify-content:center; gap:10px;">
+                        <div style="text-align:center;"><img class="size_4" style="height:150px;" src="../files/3번_그림3.png" alt="증강 결과"><br><small>B0 증강</small></div>
+                        <div style="text-align:center;"><img class="size_4" style="height:150px;" src="../files/3번_그림2.png" alt="증강 결과"><br><small>B3 증강 (최종)</small></div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 시연 (Result)</h3>
+                    
+                    <h4>📱 최종 서비스 기능</h4>
+                    <ul class="section_list">
+                        <li><strong>기본 연습 모드:</strong> 카메라를 보고 선택한 표정을 따라하면 점수화.</li>
+                        <li><strong>문장 연습 모드:</strong> 감정이 담긴 문장을 보고 해당 표정을 짓는 복합 훈련.</li>
+                        <li><strong>챌린지 모드:</strong> 재미있는 이미지 및 GIF를 보고 웃음을 찾는 게임</li>
+                    </ul>
+                    
+                    <h4>🎥 시연 영상</h4>
+                    <p style="text-align: center;"><video class="size" src="../files/3번_영상1.mp4" controls></video></p>
+
+                    <h4>💡 인사이트</h4>
+                    <p>
+                        단순히 정확도가 높은 모델보다, <strong>'실제 사용 환경(조명, 각도)'을 고려한 데이터 수집과 증강</strong>이 서비스 품질에 훨씬 큰 영향을 미친다는 것을 배웠습니다. 또한, 모바일 엣지 디바이스 환경을 고려한 모델 경량화와 성능 사이의 트레이드오프를 직접 경험했습니다.
+                    </p>
                 </section>
             </div>
             

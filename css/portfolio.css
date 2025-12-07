@@ -1,207 +1,190 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Malgun Gothic',  'Helvetica';
-    background-color: #f0f2f5;
+    word-break: keep-all;
 }
 
-/* ================== 상단 네비게이션 바 스타일 ================== */
-header {
-    background-color: #24292e;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0 40px;
-}
-.center-links {
-    flex-grow: 1; /* 남은 공간을 차지 */
-    display: flex;
-    justify-content: center; /* 내부 링크 중앙 정렬 */
-    margin: 0 20px; /* 간격 조절 */
-}
-nav li { margin: 0 15px; }
-nav a { color: white; text-decoration: none; font-size: 16px; font-weight: bold; padding: 10px; transition: color 0.3s; }
-nav a:hover { color: #66b2ff; }
-#language {
-    background-color: #24292e; color: white; text-decoration: none; font-weight: bold;
-    font-size: 15px; border: 1px solid white; padding: 7px 12px; border-radius: 5px;
-    transition: all 0.3s; cursor: pointer;
-}
-#language:hover { background-color: white; color: #24292e; }
-
-/* ================== 가로 와이드형 2단 이력서 스타일 ================== */
-.resume-container {
+.portfolio-container {
     max-width: 1200px;
     width: 90%;
-    background-color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
     margin: 40px auto;
-    display: flex; /* ★핵심: 좌우 2단 배치를 위해 flex 적용 */
 }
 
-/* --- 1. 왼쪽 프로필 정보 컬럼 --- */
-.profile-column {
-    width: 30%;
-    background-color: #f8f9fa;
-    padding: 40px;
-    border-right: 1px solid #e9ecef;
+.page-title {
+    text-align: center;
+    font-size: 36px;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
-.profile-pic {
-    width: 150px;
-    height: 100x;
-    border-radius: 20%;
-    border: 5px solid white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    object-fit: cover;
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.15);
+    border-color: var(--accent-color);
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.card-content .date {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card-content .desc {
+    color: #ccc;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 20px;
 }
-.profile-column h1 {
-    margin: 0 0 10px 0;
-    font-size: 32px;
-    color: #2c3e50;
+
+.tags span {
+    background-color: rgba(0, 243, 255, 0.1);
+    color: var(--accent-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
 }
-.profile-column .job-title {
-    margin: 0 0 25px 0;
-    font-size: 18px;
-    color: #555;
-}
-.contact-info {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
+
+.open-modal-btn {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    border: none;
+    color: #000;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
     width: 100%;
 }
-.contact-info li {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5; /* 줄간격 추가 */
-}
-.contact-info strong {
-    font-weight: bold;
-    color: #000;
-}
-.contact-info a {
-    color: #333;
-    text-decoration: none;
-}
-.contact-info a:hover {
-    text-decoration: underline;
+
+.open-modal-btn:hover {
+    opacity: 0.9;
 }
 
+/* ================== Modal Styles ================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
 
-/* --- 2. 오른쪽 상세 정보 컬럼 --- */
-.details-column {
-    width: 70%;
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
     padding: 40px;
+    border: 1px solid var(--accent-color);
+    width: 80%;
+    max-width: 900px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 243, 255, 0.2);
+    animation: fadeInUp 0.5s;
 }
-.details-column section {
+
+.close-modal {
+    color: var(--text-muted);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+}
+
+.modal-section {
     margin-bottom: 30px;
 }
-.details-column section:last-child {
-    margin-bottom: 0;
-}
-.details-column h2 {
-    font-size: 24px;
-    color: #2c3e50;
-    border-bottom: 2px solid #2c3e50;
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-.entry {
-    display: flex;
-    margin-bottom: 20px;
-}
-.entry:last-child {
-    margin-bottom: 0;
-}
-.entry .date {
-    width: 150px;
-    color: #555;
-    font-weight: bold;
-    flex-shrink: 0;
-}
-.entry .details {
-    flex: 1;
-}
-.entry .details strong {
-    font-size: 16px;
-    display: block;
-    margin-bottom: 5px;
-}
-.entry .details p {
-    margin: 0;
-    color: #333;
-    line-height: 1.6;
-}
-a.none {
-    color: #2c3e50;
-    text-decoration: none;
 
-}
-a.none:hover{
-    color : grey;
-    text-decoration: underline;
-    
+.modal-section h3 {
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+    /* Hide Profile on Mobile for Portfolio Pages */
+    .profile-column {
+        display: none;
+    }
 }
 
-/* 드롭다운 버튼 */
-.dropbtn {
-  background-color:#24292e;
-  color: white;
-  padding: 7px 12px;
-  font-size: 15px;
-  cursor: pointer;
-  text-decoration: none; 
-  font-weight: bold;
-  border: 1px solid white;  
-  border-radius: 5px;
-  transition: all 0.3s; 
-
-}
-.dropbtn:hover { background-color: white; color: #24292e; }
-/* 드롭다운 메뉴 내용 (기본적으로 숨김) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.modal-section h3 {
 }
 
-/* 메뉴 내부 링크 스타일 */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+    /* Hide Profile on Mobile for Portfolio Pages */
+    .profile-column {
+        display: none;
+    }
+}
 }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
+.modal-section {
+    margin-bottom: 30px;
 }
 
-/* JavaScript를 통해 이 클래스가 추가되면 메뉴가 보이도록 함 */
-.show {
-  display: block;
+.modal-section h3 {
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+    /* Hide Profile on Mobile for Portfolio Pages */
+    .profile-column {
+        display: none;
+    }
 }

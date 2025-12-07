@@ -1,143 +1,177 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gukho.J | AI & DS</title>
+    <title>GUKHO Jeong | AI & DS</title>
     <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ================== 상단 네비게이션 바 ================== -->
+    <!-- ================== Navigation Bar ================== -->
     <header>
         <nav>
             <ul>
-                <li><a href="../index_en.html">JGH DS</a></li>
+                <li><a href="../index.html">My Hard March</a></li>
                 <li class="center-links">
-                    <a href="about_en.html">cover letter</a>
-                    <a href="portfolio_en.html">portfolio</a>
+                    <a href="../about.html">About Me</a>
+                    <a href="../portfolio_en.html">Portfolio</a>
                 </li>
-                <!-- <li>
+                <li>
                     <div class="dropdown">
                         <button class="dropbtn">Download</button>
                         <div class="dropdown-content">
-                            <a href="../files/정국호_Resume.pdf" download>Resume(PDF)</a>
-                            <a href="../files/정국호_portfolio.pdf" download>portfolio(PDF)</a>
+                            <a href="../files/정국호_이력서.pdf" download>Resume (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>Portfolio (PDF)</a>
                         </div>
                     </div>
-                </li> -->
+                </li>
                 <li><a id="language" href="4번.html">Korean</a></li>
             </ul>
         </nav>
     </header>
     
-    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <!-- ================== Wide 2-Column Layout ================== -->
     <div class="resume-container">
-        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <!-- 1. Left Profile Column -->
         <div class="profile-column">
-            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
-            <h1>Guk Ho Jeong</h1>
-            <p class="job-title">DA & AI</p>
-            <ul class="contact-info">
-                <li>🎂 <strong>Birth:</strong>  September 14, 1999 (25 years old)</li>
-                <li>📞 <strong>Number:</strong> 010-4138-5728</li>
-                <li>📧 <strong>E-Mail:</strong> mrgjh13579@gmail.com</li>
-                <li>📍 <strong>Address:</strong> Jurye-ro, Sasang-gu, Busan, South Korea</li>
-                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">Come Here~</a></li>
-                <li>🎖️ <strong>Military Service:</strong> Republic of Korea Army, Sergeant, Discharged<br>(2019.03.04 - 2020.10.07)</li>
-                <li>💡 <strong>Introduction:</strong> A data scientist with a passion for exploring the depths of data.</li>
+            <img src="../files/photo.png" alt="Profile Picture" class="profile-pic">
+            <h1>GUKHO Jeong</h1>
+            <p class="job-title">Data Analyst & AI Engineer</p>
+            <ul class="contact-info">   
+                <li>🎂 <strong>Birth:</strong> Sep 14, 1999 (Age 25)</li>
+                <li>📞 <strong>Phone:</strong> 010-4138-5728</li>
+                <li>📧 <strong>Email:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>Address:</strong> Jurye-ro, Sasang-gu, Busan</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">View Repository</a></li>
+                <li>🎖️ <strong>Military:</strong> ROK Army Sergeant (Discharged)<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>Intro:</strong> A Data Scientist exploring the depths of data with curiosity and passion.</li>
             </ul>
         </div>
 
-        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <!-- 2. Right Details Column -->
         <div class="details-column">
-            <h2>AI-Based News Summarization and Topic Analysis Service</h2>
+            <h2>AI-Based News Summary & Topic Analysis Service</h2>
+            
             <div class="sections-wrapper">
-                <section class="resume-section">
-                    <h3>Project Topic</h3>
-                    <p>Developing a service that can quickly and accurately identify core issues and trends from complex news articles.</p>
-                    <br><h3>Project Information</h3>
-                    <ul class = "section_list">
-                        <li>Project Duration: 2025.08.08 ~ 2025.08.27</li>
-                        <li>Team Size: 4 members</li>
-                        <li>Personal Contribution: 50% (Code writing, feature implementation, model training)</li>
-                        <li>
-                            Backend: Python, Flask, Flask-SocketIO
-                        </li>
-                        <li>
-                            Frontend: HTML, CSS, JavaScript
-                        </li>
-                        <li>
-                            NLP & Data Analysis
-                        </li>
-                            <ul>
-                                <li>Transformers (Hugging Face): News summarization</li>
-                                <li>Mecab: Korean morphological analysis</li>
-                                <li>Scikit-learn: Topic modeling (LDA)</li>
-                                <li>WordCloud: Data visualization</li>
-                                <li>Crawling: Selenium, BeautifulSoup4</li>
-                            </ul>
-                    </ul>
-                </section>
-
-                <section class="resume-section">
-                    <h3>Key Features</h3>
-                    <ul class = "section_list_1">
-                        <li><strong>Real-time News Data Collection:</strong>  Real-time crawling of Naver News data based on the keywords and time period entered by the user.</li>
-                        <li><strong>AI-Powered Automatic Summarization:</strong> Utilizing a summarization model from the Transformers library to automatically summarize the core content of each news article.</li>
-                        <li><strong>Topic Modeling and Classification: </strong> Automatically classifying collected news articles into major topics using Mecab and Scikit-learn's LDA model.</li>
-                        <li><strong>Data Visualization: </strong> Automatically generating a WordCloud to visually represent the core keywords for each topic.</li>
-                        <li><strong>Real-time Processing Visualization:</strong> Providing real-time feedback to users by visualizing the entire process from data collection to analysis with a progress bar.</li>
-                    </ul>
-                </section>
-
-                <section class="resume-section">
-                    <h3>Models Attempted </h3>
-                    <ul class = "section_list_1">
-                        <li>KoBert-based summarization model</li>
-                        <li>T5-small model</li>
-                        <li>T5-base model</li>
-                    </ul><br>
-                    <h3>Final Model: T5-base Model</h3>
-                    <p>The content was extracted from crawled data using a model from Hugging Face, followed by fine-tuning on eenzeenee/t5-base-korean-summarization.
-                    </p><br>
-                    <p><a href = "https://huggingface.co/fodmrldg/news_summarization_model" class = "none_4">Model Address (Model Used)</a></p><br>
-
-                    <br><h3>Reasons for Final Model Selection</h3>
-                    <ul class = "section_list_1">
-                        <li>KoBert: Although it had the advantage of handling long input tokens, the actual summary performance was somewhat unstable.</li>
-                        <li>T5: The T5 model required a prefix like "summarize:" as an input constraint but generated more consistent and higher-quality summaries compared to KoBERT.</li>
-                        <li>T5-small vs. T5-base: The small model showed high performance compared to KoBERT, but given the sufficient resources and the base model's superior generalization ability, T5-base was chosen as the final model.</li>
-                    </ul>
-                </section>
                 
-                <section class="resume-section">
-                    <h3>Problem</h3>
-                    <p>
-                        Data duplication occurred because the same reporter would often write 3-4 news articles with similar content.
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. Overview</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "Provides real-time summaries and topic clustering so you don't miss key trends amidst the flood of news."
                     </p>
-                    <br>
-                    <h3>Solution</h3>
-                    <p> A solution is planned to be implemented to remove duplicate news articles by calculating the similarity between them after grouping by reporter or news agency.</p><br>
-                    <h3>Final Insights</h3>
-                    <ul class = "section_list">
-                        <li>A significant amount of time was spent on collecting and analyzing a large volume of news, leading to a long wait time for users.</li>
-                        <li>However, a plan is in place to connect the service to a database so that users can instantly view their previous search records, improving the user experience.</li>
+                    
+                    <!-- Hero Image -->
+                    <img class="size_4" src="../files/4번_그림2.png" alt="News Analysis Word Cloud">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 Duration</strong>
+                            <span>2025.08.08 ~ 08.27 (3 weeks)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 Team / Role</strong>
+                            <span>4 Members / Contribution 50%<br>(NLP Pipeline, Flask Backend)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ Tech Stack</strong>
+                            <div>
+                                <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Transformers(T5)</span><span class="tag">LDA</span><span class="tag">SocketIO</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 Relevant Link</strong>
+                            <span><a href="https://huggingface.co/fodmrldg/news_summarization_model" target="_blank" style="color:var(--accent-color)">🤗 Fine-tuned Model</a></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. Challenge (Situation & Task)</h3>
+                    
+                    <h4>🧐 Service Goal</h4>
+                    <p>
+                        Modern people are exposed to countless news articles but struggle to grasp the key context. 
+                        We planned a service that <strong>collects the latest news on specific keywords in real-time, summarizes the content into 3 lines, and groups them by major topics</strong>.
+                    </p>
+
+                    <h4>🚧 Key Difficulties</h4>
+                    <ul class="section_list_1">
+                        <li><strong>Duplicate News Flood:</strong> Due to breaking news competition, 3-4 identical articles are produced by different media outlets, degrading analysis quality.</li>
+                        <li><strong>Summary Model Consistency:</strong> Early models like KoBERT lost context or generated grammatically awkward summaries for long sentences.</li>
+                        <li><strong>Latency:</strong> The heavy natural language processing (Summary + Topic Modeling) caused long user wait times.</li>
                     </ul>
                 </section>
 
+                <!-- Section 3: Action (Process) -->
                 <section class="resume-section">
-                    <h3>Service Structure </h3>
-                    <p style ="text-align: center;"><img class ="size_4" src = "../files/4번_그림1.png"><br >Index.html</p>
-                    <p style ="text-align: center;"><img class ="size_4" src = "../files/4번_그림2.png"><br >result.html</p>
-                     <h3>Demo video</h3>
-                    <p style ="text-align: center;"><video  class ="size_4" src="../files/4번_영상.mp4" controls></video></p><br>
+                    <h3>3. Process & Action</h3>
+                    
+                    <h4>🧠 NLP Pipeline Construction</h4>
+                    <ol class="section_list_1">
+                        <li><strong>Model Selection (KoBERT vs T5):</strong> 
+                            <br>- KoBERT: Strong in processing long inputs but unstable in generation results.
+                            <br>- <strong>T5-Base (Selected):</strong> Selected for showing the most natural Korean generation capability through Prompt-based ("Summarize: ...") fine-tuning.
+                        </li>
+                        <li><strong>Topic Modeling (LDA):</strong> Applied Scikit-learn's LDA to automatically classify news by topic after extracting nouns with Mecab morphological analyzer.</li>
+                    </ol>
+
+                    <h4>🔧 Troubleshooting: Data Quality & UX</h4>
+                    <ul class="section_list_1">
+                        <li><strong>Removing Duplicates:</strong> Filtered out 'copy-paste' articles with over 80% content similarity by calculating TF-IDF based Cosine Similarity within media groups.</li>
+                        <li><strong>Real-time Feedback (UX):</strong> Considering long analysis times, introduced `Flask-SocketIO` to visualizes progress (e.g., <em>"Collecting data...", "Running summary model..."</em>) with a progress bar, reducing bounce rates.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. Result & Insight</h3>
+                    
+                    <h4>💻 Service Structure & Demo</h4>
+                    <p style="text-align: center;">
+                        <img class="size_4" src="../files/4번_그림1.png" alt="Main Page Structure">
+                        <br><em>[Main Screen for Keyword Input]</em>
+                    </p>
+                    <p style="text-align: center;">
+                        <video class="size_4" src="../files/4번_영상.mp4" controls></video>
+                    </p>
+
+                    <h4>💡 Final Insight</h4>
+                    <ul class="section_list">
+                        <li><strong>Understanding Trade-offs:</strong> "High Accuracy" and "Fast Speed" are hard to achieve simultaneously. I realized that lightweight models or caching (DB storage) strategies are essential for real-time services. In the future, I plan to improve re-search speeds to the 0.1s range by storing once-searched keywords in the DB.</li>
+                    </ul>
                 </section>
             </div>
             
             <div class="navigation-buttons">
-                <button id="prevBtn">prev</button>
-                <button id="nextBtn">next</button>
+                <button id="prevBtn">Prev</button>
+                <button id="nextBtn">Next</button>
             </div>
         </div>
     </div>

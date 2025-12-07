@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정국호 | AI & DS</title>
+    <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+        /* Placeholder for missing images */
+        .img-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            border: 2px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== 상단 네비게이션 바 ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">나의 고된 행군</a></li>
+                <li class="center-links">
+                    <a href="../about.html">자기소개서</a>
+                    <a href="../portfolio.html">포트폴리오</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">다운로드</button>
+                        <div class="dropdown-content">
+                            <a href="../files/정국호_이력서.pdf" download>이력서 (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a id="language" href="6번_en.html">영어</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <div class="resume-container">
+        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
+            <h1>정국호</h1>
+            <p class="job-title">데이터 분석 & AI</p>
+            <ul class="contact-info">   
+                <li>🎂 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
+                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">여기로오세요~</a></li>
+                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>소개:</strong> 호기심과 열정으로 데이터의 깊이를 탐색하는 데이터 사이언티스트 입니다.</li>
+            </ul>
+        </div>
+
+        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <div class="details-column">
+            <h2>ManuAI-Talk: AI 기반 제품 설명서 질의응답 시스템</h2>
+            
+            <div class="sections-wrapper">
+                
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "텍스트와 이미지를 모두 이해하고, 사용자의 질문에 실시간으로 정확하게 답변하는 RAG 기반의 멀티모달 AI 매뉴얼 서비스입니다."
+                    </p>
+                    
+                    <!-- 대표 이미지 (Diagram) -->
+                    <div class="img-container">
+                        <img class="size_4" src="../files/6번_Diagram.png" alt="Agent Logic Flowchart" >
+                        <p style="text-align: center; color: #888; margin-top: 5px; font-size: 0.9em;">[그림] Agent Logic Architecture</p>
+                    </div>
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2025.09 ~ 2025.12 (서비스 개발)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>6명 / 해당 파트 기여도 100%<br>백엔드 리드, AI 엔지니어링 (RAG/Agent 설계)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">LangChain Lambda</span><span class="tag">WebSocket</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 관련 링크</strong>
+                            <span><a href="#" style="color:var(--accent-color);">Github Repository</a></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 배경 (Situation)</h4>
+                    <p>
+                        사용자는 방대한 PDF 매뉴얼을 읽지 않아 제품 활용에 어려움을 겪고, 기업은 단순 반복 문의로 인한 <strong>고객센터 비용 증가</strong> 문제를 안고 있었습니다. 이를 해결하기 위해 텍스트와 이미지를 모두 이해하는 AI 챗봇 서비스가 필요했습니다.
+                    </p>
+
+                    <h4>🚧 과제 (Task)</h4>
+                    <p>
+                        단순 키워드 검색이 아닌 <strong>문맥을 파악하는 고성능 RAG 엔진</strong>을 구축하고, 실시간성이 보장되는 <strong>백엔드 아키텍처</strong>를 설계하는 것이 핵심 과제였습니다.
+                    </p>
+                    <p style="margin-top: 10px; color: #ff6b6b; font-weight: bold;">⚠️ 직면한 난관:</p>
+                    <p>
+                        초기 LangChain과 FAISS 연동 시, <strong>검색 정확도가 현저히 떨어지는 문제</strong>와 단발성 질문 처리로 인해 문맥이 유지되지 않는 한계를 극복해야 했습니다.
+                    </p>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>🔍 RAG 검색 품질 고도화: 2-Stage Retrieval 도입</h4>
+                    <ul class="section_list">
+                        <li><strong>문제 분석:</strong> FAISS의 후-필터링(Post-filtering) 방식으로 인해 실제 유효한 문서가 검색 결과에서 누락되는 현상을 발견했습니다.</li>
+                        <li><strong>가설 검증 (Ablation Study):</strong> fetch-k 값(10~500), MMR, 코사인 유사도 임계값을 조절하며 실험한 결과, fetch-k가 100 미만일 때 유효 문서가 검색되지 않음을 확인했습니다.</li>
+                        <li><strong>해결책:</strong> <strong>fetch-k를 500까지 늘려</strong> 폭넓게 문서를 가져온 뒤(Recall 증대), <strong>Re-ranker(리랭커)</strong>를 도입하여 관련성 높은 순서로 재정렬하는 2단계 파이프라인을 구축해 정확도를 비약적으로 향상시켰습니다.</li>
+                    </ul>
+
+                    <h4>🤖 Multi-Tool Agent 및 세션 메모리 구축</h4>
+                    <ul class="section_list">
+                        <li><strong>기능 확장:</strong> 단순 답변을 넘어 '상품 추천', '비교 분석' 등이 가능하도록 Agent에 <strong>Multi-Tool 구조</strong>를 적용했습니다.</li>
+                        <li><strong>문맥 유지:</strong> 일회성 문답의 한계를 넘기 위해 Agent 내에 과거 대화 기억(Session Memory)을 주입하는 로직을 구현하여, 사용자의 이전 질문 맥락을 이해하는 연속적인 대화가 가능하도록 했습니다.</li>
+                    </ul>
+
+                    <h4>⚡ 실시간 멀티모달 시스템 엔지니어링</h4>
+                    <p>
+                        FastAPI 기반에 <strong>WebSocket</strong>을 적용하여 프론트엔드와 실시간 양방향 통신 환경을 구축했습니다.
+                    </p>
+                    <ul class="section_list_1">
+                        <li><strong>멀티모달 처리:</strong> 검색된 정보 내 이미지를 <strong>LangChain Lambda</strong>를 통해 처리하고, Context 내에 이미지 링크를 동적으로 삽입하여 텍스트와 이미지가 결합된 직관적인 답변을 제공했습니다.</li>
+                        <li><strong>보안:</strong> JWT 인증 및 비밀번호 해시(Hashing) 적용으로 안전한 사용자 관리 시스템을 구현했습니다.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4: Result -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 성과 (Result)</h3>
+                    
+                    <h4>📈 주요 성과</h4>
+                    <ul class="section_list">
+                        <li><strong>서비스 런칭:</strong> 프론트엔드와 백엔드 로직의 완전한 통합을 통해 MVP 서비스를 성공적으로 런칭했습니다.</li>
+                        <li><strong>기술적 의의:</strong> 단순 벡터 검색의 한계를 리랭킹(Re-ranking) 기법으로 극복하여 신뢰할 수 있는 검색 품질을 확보했으며, 텍스트 중심의 LLM 한계를 넘어 시각 정보까지 제공하는 <strong>멀티모달 서비스의 가능성</strong>을 입증했습니다.</li>
+                    </ul>
+
+                    <!-- 1. Demo Video -->
+                    <div class="video-container" style="width: 100%; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid #333; margin-top: 15px;">
+                        <video controls style="width: 100%; height: auto; display: block;">
+                            <source src="../files/demo.mp4" type="video/mp4">
+                            브라우저가 비디오 태그를 지원하지 않습니다.
+                        </video>
+                        <p style="text-align: center; color: #aaa; padding: 10px; margin: 0; font-size: 0.9em; background: #222;">
+                            🎥 <strong>Service Demo:</strong> 실시간 RAG 답변 및 멀티모달 처리 시연
+                        </p>
+                    </div>
+
+                    <!-- 2. Logic Diagram (Re-emphasis) -->
+                    <p style="text-align: center; margin-top: 20px;">
+                        <img src="../files/6번_Diagram.png" alt="Agent Logic Flowchart" style="width: 100%; height: auto; border-radius: 8px;">
+                        <br><em> [Agent Logic Flowchart]</em>
+                    </p>
+                </section>
+
+                <!-- Section 5: Retrospective & Limitations -->
+                <section class="resume-section">
+                    <h3>5. 한계점 및 향후 발전 방향 (Limitations & To-Be Roadmap)</h3>
+                    
+                    <h4>⚠️ Unresolved Issue: Context Window 한계</h4>
+                    <p>
+                        <strong>컨텍스트 잘림(Context Truncation) 현상:</strong> 현재 LLM의 Context Window 제한으로 인해, 대화가 길어지거나 참조 문서가 많을 경우 <strong>이전 대화의 맥락이 잘리거나 정보가 누락되는 문제</strong>가 여전히 존재합니다. 향후에는 <strong>Long-Context 모델 도입</strong> 또는 <strong>기억 요약(Memory Summarization) 알고리즘 고도화</strong>를 통해 이를 해결할 계획입니다.
+                    </p>
+
+                    <h4>⚖️ Insight: 응답 속도와 사용자 경험 (Latency & UX)</h4>
+                    <p>
+                        RAG 프로세스로 인한 물리적 응답 지연이 존재하지만, <strong>GPT-4나 Gemini 등 상용 모델의 평균 응답 시간과 비교했을 때 서비스 가능한 수준</strong>으로 판단하여 MVP를 런칭했습니다. 추후에는 <strong>Token Streaming (스트리밍 모드)</strong>를 본격적으로 도입하여, 답변이 생성되는 즉시 화면에 글자가 나타나게 함으로써 <strong>체감 대기 시간(Perceived Latency)을 단축시키는 시각적 최적화</strong>를 진행할 예정입니다.
+                    </p>
+
+                    <h4>🚀 향후 발전 방향 (To-Be Roadmap)</h4>
+                    <div class="roadmap-block" style="margin-top: 10px;">
+                        <h5 style="color: var(--accent-color); margin-bottom: 5px;">1. 데이터 선순환을 통한 AICC 자동화 (Data Flywheel)</h5>
+                        <ul class="section_list_1">
+                            <li><strong>Self-Evolving FAQ:</strong> 상담 로그를 군집화(Clustering)하여 자주 묻는 질문을 분석하고, 관리자 개입 없이 FAQ 데이터베이스를 자동 업데이트하는 파이프라인 구축.</li>
+                            <li><strong>지식 자산화 (Knowledge Assetization):</strong> 휘발성 상담 로그를 기업의 핵심 지식 자산(Knowledge Base)으로 전환하여 상담 운영 효율 극대화.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="roadmap-block" style="margin-top: 15px;">
+                        <h5 style="color: var(--accent-color); margin-bottom: 5px;">2. 산업 및 글로벌 확장성 (Global B2B SaaS)</h5>
+                        <ul class="section_list_1">
+                            <li><strong>Domain Agnostic 확장:</strong> 가전뿐만 아니라 의료기기, 자동차, 조립 가구 등 설명서가 있는 모든 산업군에 즉시 적용 가능한 솔루션화.</li>
+                            <li><strong>Global Cross-Lingual Search:</strong> 한국어 매뉴얼로 영어/일본어 질문에 응답하는 다국어 임베딩 및 실시간 번역 파이프라인 구축.</li>
+                            <li><strong>디지털 포용성:</strong> 복잡한 공공/행정 문서를 대화형으로 변환하여 누구나 쉽게 정보에 접근할 수 있도록 개선.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "../js/page.js"></script>
+    <script src = "./js/download.js"></script>
+</body>
+</html>

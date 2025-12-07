@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정국호 | AI & DS</title>
+    <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== 상단 네비게이션 바 ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">나의 고된 행군</a></li>
+                <li class="center-links">
+                    <a href="../about.html">자기소개서</a>
+                    <a href="../portfolio.html">포트폴리오</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">다운로드</button>
+                        <div class="dropdown-content">
+                            <a href="../files/정국호_이력서.pdf" download>이력서 (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a id="language" href="#">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
+    <div class="resume-container">
+        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="프로필 사진" class="profile-pic">
+            <h1>정국호</h1>
+            <p class="job-title">데이터 분석 & AI</p>
+            <ul class="contact-info">   
+                <li>🎂 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
+                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">여기로오세요~</a></li>
+                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>소개:</strong> 호기심과 열정으로 데이터의 깊이를 탐색하는 데이터 사이언티스트 입니다.</li>
+            </ul>
+        </div>
+
+        <!-- 2. 오른쪽 상세 정보 컬럼 -->
+        <div class="details-column">
+            <h2>보이스피싱 실시간 탐지 AI 에이전트</h2>
+            
+            <div class="sections-wrapper">
+                
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "지능화되는 보이스피싱, AI가 실시간으로 통화를 분석하여 송금 유도를 막고 대응 가이드를 제공합니다."
+                    </p>
+                    
+                    <!-- 대표 이미지: 서비스 최종 화면 -->
+                    <img class="size_4" src="../files/5번_그림5.png" alt="최종 탐지 보고서 화면">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2025.09.05 ~ 09.25 (3주)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>5명 / 기여도 40%<br>(LangGraph 설계, Hybrid RAG, 최적화)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">FastAPI</span><span class="tag">LangGraph</span><span class="tag">WebSocket</span><span class="tag">FAISS/BM25</span><span class="tag">Clova Speech</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 주요 특징</strong>
+                            <span>실시간 분석 에이전트<br>심리 분석 및 가이드 제공</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 기획 의도</h4>
+                    <p>
+                        보이스피싱 피해는 지속적으로 증가하고 있으며, 특히 <strong>2030 세대</strong>는 '검찰 사칭' 등 전문적인 정보를 이용한 수법에 취약합니다. 단순 경고를 넘어, <strong>"왜 보이스피싱인지" 논리적인 근거(유사 피해 사례)</strong>를 제시하여 피해자를 설득하는 에이전트가 필요했습니다.
+                    </p>
+
+                    <h4>🚧 기술적 난관 (Difficulties)</h4>
+                    <ul class="section_list">
+                        <li><strong>Relevance(관련성) 저하:</strong> 일반적인 RAG(Vector Search)로는 "검찰청" 같은 특정 고유명사나 정확한 수법 매칭이 잘 안 되어, 엉뚱한 가이드를 제공하는 문제 발생.</li>
+                        <li><strong>Latency(지연 시간):</strong> 실시간 통화 서비스 특성상 STT 변환 및 LLM 응답 속도가 늦어지면 타이밍을 놓침.</li>
+                        <li><strong>Context 유지:</strong> 긴 통화 내용 중 중요 맥락을 놓치지 않으면서 전체를 처리하는 토큰 관리의 어려움.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>🧠 LangGraph 기반 에이전트 설계</h4>
+                    <p>
+                        단순 질의응답이 아닌, <strong>상황을 판단하고 흐름을 제어하는 Agentic Workflow</strong>를 구축했습니다.
+                    </p>
+                    <p style="text-align: center;">
+                        <img class="size_4" src="../files/5번_그림2.png" alt="LangGraph 아키텍처">
+                        <br><em>[Detect(감지) -> Psychology(심리분석) -> RAG(사례대조) -> Info(정보종합) 흐름]</em>
+                    </p>
+                    <ol class="section_list">
+                        <li><strong>Risk Scoring:</strong> '송금', '비밀번호', '앱 설치' 등 위험 키워드 감지 시 즉시 경고 트리거 작동.</li>
+                        <li><strong>Psychological Analysis:</strong> 당황한 피해자의 심리 상태를 분석하여, 안심시키는 멘트(Empathetic Response) 우선 생성.</li>
+                    </ol>
+
+                    <h4>🔍 Hybrid RAG & Rerank 최적화</h4>
+                    <p>
+                        정확한 유사 사례 검색을 위해 검색 파이프라인을 고도화했습니다.
+                    </p>
+                    <ul class="section_list">
+                        <li><strong>Hybrid Search:</strong> 키워드 매칭에 강한 <strong>BM25</strong>와 의미 검색에 강한 <strong>FAISS</strong>를 앙상블(Ensemble)하여 검색 재현율(Recall) 향상.</li>
+                        <li><strong>Cohere Rerank:</strong> 1차 검색된 문서들을 문맥 연관성 순으로 재정렬(Rerank)하여 LLM에게 가장 적합한 정보(Context) 제공.</li>
+                        <li><strong>청크(Chunk) 최적화:</strong> RAGAS 프레임워크를 활용하여 다양한 청크 사이즈를 정량적으로 평가했습니다.</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; color: var(--text-color);">📊 RAGAS 성능 평가 (Model & Chunk Size)</p>
+                    <div style="overflow-x: auto;">
+                        <table class="table" style="width: 100%; margin-bottom: 20px; font-size: 0.85em;">
+                            <thead>
+                                <tr>
+                                    <th>Model</th>
+                                    <th>Chunk Size</th>
+                                    <th>Context Precision</th>
+                                    <th>Context Recall</th>
+                                    <th>Faithfulness</th>
+                                    <th>Answer Relevancy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BM25 Rows -->
+                                <tr><td>BM25</td><td>250</td><td>1.0</td><td>0.6905</td><td>0.7196</td><td>0.7667</td></tr>
+                                <tr><td>BM25</td><td>500</td><td>1.0</td><td>0.9167</td><td>0.8091</td><td>0.7703</td></tr>
+                                <tr><td>BM25</td><td>750</td><td>1.0</td><td>0.9167</td><td>0.7487</td><td>0.7675</td></tr>
+                                <tr><td>BM25</td><td>1000</td><td>1.0</td><td>0.9167</td><td>0.8159</td><td>0.7602</td></tr>
+                                
+                                <!-- Ensemble Rows (Highlight Winner) -->
+                                <tr><td>Ensemble</td><td>250</td><td>1.0</td><td>0.9167</td><td>0.7660</td><td>0.7765</td></tr>
+                                <tr><td>Ensemble</td><td>500</td><td>1.0</td><td>0.9167</td><td>0.7556</td><td>0.7781</td></tr>
+                                <tr><td>Ensemble</td><td>750</td><td>1.0</td><td>0.9167</td><td>0.7507</td><td>0.7746</td></tr>
+                                <tr style="background-color: rgba(77, 171, 247, 0.2); border: 1px solid var(--accent-color);">
+                                    <td style="color: var(--accent-color); font-weight: bold;">Ensemble</td>
+                                    <td style="color: var(--accent-color); font-weight: bold;">1000 (Selected)</td>
+                                    <td style="font-weight: bold;">1.0</td>
+                                    <td style="font-weight: bold;">0.9167</td>
+                                    <td style="font-weight: bold;">0.9278</td>
+                                    <td style="font-weight: bold;">0.7790</td>
+                                </tr>
+                                
+                                <!-- Retriever Rows -->
+                                <tr><td>Retriever</td><td>250</td><td>1.0</td><td>0.9167</td><td>0.7569</td><td>0.7720</td></tr>
+                                <tr><td>Retriever</td><td>500</td><td>1.0</td><td>0.6905</td><td>0.6791</td><td>0.7805</td></tr>
+                                <tr><td>Retriever</td><td>750</td><td>1.0</td><td>0.7738</td><td>0.5944</td><td>0.7848</td></tr>
+                                <tr><td>Retriever</td><td>1000</td><td>1.0</td><td>0.9167</td><td>0.6009</td><td>0.7612</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.9em; color: #aaa;">
+                        * <strong>결과 분석:</strong> 단일 모델(BM25, Retriever) 대비 <strong>Ensemble(Hybrid) + Chunk 1000</strong> 조합이 Faithfulness(0.9278)와 Recall(0.9167) 측면에서 가장 우수한 성능을 보여 최종 모델로 선정하였습니다.
+                    </p>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 트러블슈팅 (Result & Insight)</h3>
+                    
+                    <h4>🚀 성능 개선 (Troubleshooting)</h4>
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
+                        <strong style="color: coral;">STT 지연 문제 해결</strong>
+                        <p style="margin-top: 5px; font-size: 0.95em;">
+                            초기 OpenAI Whisper 사용 시 느린 응답 속도로 인해 실시간성이 떨어짐 -> 
+                            <strong>NCP(Naver Cloud Platform) Clova Speech</strong>로 교체하여 한국어 인식 정확도는 유지하면서 <strong>지연 시간 50% 이상 단축</strong>.
+                        </p>
+                    </div>
+
+                    <h4>💻 서비스 시연</h4>
+                    <div style="display: flex; gap: 10px; overflow-x: auto;">
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림3.png" alt="음성 입력">
+                            <br><small>1. 통화 음성 입력</small>
+                        </div>
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림4.png" alt="위험 감지">
+                            <br><small>2. 위험 키워드 경고</small>
+                        </div>
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림5.png" alt="최종 보고서">
+                            <br><small>3. 최종 대응 가이드</small>
+                        </div>
+                    </div>
+
+                    <h4>💡 인사이트 (Retrospective)</h4>
+                    <ul class="section_list">
+                        <li><strong>SaaS API의 장단점:</strong> Clova Speech 등 상용 API는 성능이 뛰어나지만 비용(Cost) 문제가 발생할 수 있음을 인지했습니다. 향후엔 서버 로컬 모델(Distil-Whisper 등) 파인튜닝을 통해 비용 효율화를 꾀할 계획입니다.</li>
+                        <li><strong>Agent의 가능성:</strong> 단순 챗봇을 넘어, 복합적인 판단과 행동을 수행하는 에이전트 시스템이 실제 문제 해결에 훨씬 강력하다는 점을 배웠습니다.</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prevBtn">이전</button>
+                <button id="nextBtn">다음</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "../js/page.js"></script>
+    <script src = "./js/download.js"></script>
+</body>
+</html>

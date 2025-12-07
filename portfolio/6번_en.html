@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUKHO Jeong | AI & DS</title>
+    <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+        /* Placeholder for missing images */
+        .img-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            border: 2px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== Navigation Bar ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">My Hard March</a></li>
+                <li class="center-links">
+                    <a href="../about.html">About Me</a>
+                    <a href="../portfolio_en.html">Portfolio</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Download</button>
+                        <div class="dropdown-content">
+                            <a href="../files/정국호_이력서.pdf" download>Resume (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>Portfolio (PDF)</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a id="language" href="6번.html">Korean</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== Wide 2-Column Layout ================== -->
+    <div class="resume-container">
+        <!-- 1. Left Profile Column -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="Profile Picture" class="profile-pic">
+            <h1>GUKHO Jeong</h1>
+            <p class="job-title">Data Analyst & AI Engineer</p>
+            <ul class="contact-info">   
+                <li>🎂 <strong>Birth:</strong> Sep 14, 1999 (Age 25)</li>
+                <li>📞 <strong>Phone:</strong> 010-4138-5728</li>
+                <li>📧 <strong>Email:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>Address:</strong> Jurye-ro, Sasang-gu, Busan</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">View Repository</a></li>
+                <li>🎖️ <strong>Military:</strong> ROK Army Sergeant (Discharged)<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>Intro:</strong> A Data Scientist exploring the depths of data with curiosity and passion.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Right Details Column -->
+        <div class="details-column">
+            <h2>ManuAI-Talk: AI-based Product Manual Q&A System</h2>
+            
+            <div class="sections-wrapper">
+                
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. Overview</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "A Multimodal AI Manual Service based on RAG that understands both text and images to provide accurate real-time answers to user inquiries."
+                    </p>
+                    
+                    <!-- Hero Image (Diagram) -->
+                    <div class="img-container">
+                        <img class="size_4" src="../files/6번_Diagram.png" alt="Agent Logic Flowchart" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid #333; display: block; margin: 0 auto;">
+                        <p style="text-align: center; color: #888; margin-top: 5px; font-size: 0.9em;">[Figure] Agent Logic Architecture</p>
+                    </div>
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 Duration</strong>
+                            <span>2025.09 ~ 2025.12 (Service Dev)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 Team / Role</strong>
+                            <span>6 Members / Part Contribution 100%<br>Backend Lead, AI Engineering (RAG/Agent Design)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ Tech Stack</strong>
+                            <div>
+                                <span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">LangChain Lambda</span><span class="tag">WebSocket</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 Relevant Link</strong>
+                            <span><a href="#" style="color:var(--accent-color);">Github Repository</a></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. Challenge (Situation & Task)</h3>
+                    
+                    <h4>🧐 Situation</h4>
+                    <p>
+                        Users struggle to utilize products because they don't read voluminous PDF manuals, and companies face the problem of <strong>increased customer service costs</strong> due to simple repetitive inquiries. An AI chatbot service capable of understanding both text and images was needed to solve this.
+                    </p>
+
+                    <h4>🚧 Task</h4>
+                    <p>
+                        The key task was to build a <strong>high-performance RAG engine</strong> that grasps context rather than simple keyword search, and to design a <strong>backend architecture</strong> that guarantees real-time performance.
+                    </p>
+                    <p style="margin-top: 10px; color: #ff6b6b; font-weight: bold;">⚠️ Difficulties Faced:</p>
+                    <p>
+                        We had to overcome the <strong>significantly low search accuracy</strong> when initially integrating LangChain and FAISS, and the limitation where context was not maintained due to single-turn QA processing.
+                    </p>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. Process & Action</h3>
+                    
+                    <h4>🔍 RAG Quality Enhancement: 2-Stage Retrieval</h4>
+                    <ul class="section_list">
+                        <li><strong>Problem Analysis:</strong> Discovered that valid documents were missing from search results due to FAISS's post-filtering method.</li>
+                        <li><strong>Ablation Study:</strong> Experimented with fetch-k values (10~500), MMR, and cosine similarity thresholds, confirming that valid documents were not retrieved when fetch-k was less than 100.</li>
+                        <li><strong>Solution:</strong> We drastically improved accuracy by building a 2-stage pipeline: <strong>increasing fetch-k to 500</strong> to broaden document retrieval (Recall boost), and then introducing a <strong>Re-ranker</strong> to reorder by relevance.</li>
+                    </ul>
+
+                    <h4>🤖 Multi-Tool Agent & Session Memory</h4>
+                    <ul class="section_list">
+                        <li><strong>Feature Expansion:</strong> Applied a <strong>Multi-Tool structure</strong> to the Agent to enable 'Product Recommendation' and 'Comparative Analysis' beyond simple answers.</li>
+                        <li><strong>Context Maintenance:</strong> To overcome the limits of one-off Q&A, we implemented logic to inject <strong>Session Memory</strong> into the Agent, enabling continuous conversation that understands the context of the user's previous questions.</li>
+                    </ul>
+
+                    <h4>⚡ Real-time Multimodal System Engineering</h4>
+                    <p>
+                        We established a real-time bi-directional communication environment with the frontend by applying <strong>WebSocket</strong> on top of FastAPI.
+                    </p>
+                    <ul class="section_list_1">
+                        <li><strong>Multimodal Processing:</strong> Processed images within retrieved information via <strong>LangChain Lambda</strong> and dynamically inserted image links into the Context to provide intuitive answers combining text and images.</li>
+                        <li><strong>Security:</strong> Implemented a secure user management system using JWT authentication and password hashing.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4: Result -->
+                <section class="resume-section">
+                    <h3>4. Result</h3>
+                    
+                    <h4>📈 Key Achievements</h4>
+                    <ul class="section_list">
+                        <li><strong>Service Launch:</strong> Successfully launched the MVP service through the complete integration of frontend and backend logic.</li>
+                        <li><strong>Technical Significance:</strong> Overcame the limitations of simple vector search with Re-ranking techniques to secure reliable search quality, and proved the <strong>possibility of multimodal services</strong> providing visual information beyond text-centric LLM limits.</li>
+                    </ul>
+
+                    <!-- 1. Demo Video -->
+                    <div class="video-container" style="width: 100%; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid #333; margin-top: 15px;">
+                        <video controls style="width: 100%; height: auto; display: block;">
+                            <source src="../files/demo.mp4" type="video/mp4">
+                            Browser does not support video tag.
+                        </video>
+                        <p style="text-align: center; color: #aaa; padding: 10px; margin: 0; font-size: 0.9em; background: #222;">
+                            🎥 <strong>Service Demo:</strong> Real-time RAG Answer & Multimodal Processing
+                        </p>
+                    </div>
+
+                    <!-- 2. Logic Diagram (Re-emphasis) -->
+                    <p style="text-align: center; margin-top: 20px;">
+                        <img src="../files/6번_Diagram.png" alt="Agent Logic Flowchart" style="width: 100%; height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid #333; display: block; margin: 0 auto;">
+                        <br><em> [Agent Logic Flowchart]</em>
+                    </p>
+                </section>
+
+                <!-- Section 5: Retrospective & Limitations -->
+                <section class="resume-section">
+                    <h3>5. Limitations & To-Be Roadmap</h3>
+                    
+                    <h4>⚠️ Unresolved Issue: Context Window Limit</h4>
+                    <p>
+                        <strong>Context Truncation:</strong> Due to current LLM Context Window limits, the problem of <strong>truncated context or missing information</strong> still exists when conversations get long or referenced documents are numerous. We plan to solve this by introducing <strong>Long-Context models</strong> or advancing <strong>Memory Summarization algorithms</strong>.
+                    </p>
+
+                    <h4>⚖️ Insight: Response Speed vs UX (Latency)</h4>
+                    <p>
+                        Physical latency due to the RAG process exists, but we launched the MVP judging it to be <strong>serviceable compared to the average response times of commercial models like GPT-4 or Gemini</strong>. We plan to fully introduce <strong>Token Streaming</strong> to make characters appear immediately as the answer is generated, performing <strong>visual optimization to reduce Perceived Latency</strong>.
+                    </p>
+
+                    <h4>🚀 Future Roadmap (To-Be)</h4>
+                    <div class="roadmap-block" style="margin-top: 10px;">
+                        <h5 style="color: var(--accent-color); margin-bottom: 5px;">1. AICC Automation via Data Flywheel</h5>
+                        <ul class="section_list_1">
+                            <li><strong>Self-Evolving FAQ:</strong> Build a pipeline that clusters consultation logs to analyze FAQs and automatically updates the Knowledge Base without manager intervention.</li>
+                            <li><strong>Knowledge Assetization:</strong> Convert volatile consultation logs into corporate core Knowledge Assets to maximize operation efficiency.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="roadmap-block" style="margin-top: 15px;">
+                        <h5 style="color: var(--accent-color); margin-bottom: 5px;">2. Industrial & Global Expansion (Global B2B SaaS)</h5>
+                        <ul class="section_list_1">
+                            <li><strong>Domain Agnostic Expansion:</strong> Solutionize to be immediately applicable to all industries with manuals, such as medical devices, automobiles, and assembly furniture, not just home appliances.</li>
+                            <li><strong>Global Cross-Lingual Search:</strong> Build multilingual embedding and real-time translation pipelines to answer English/Japanese questions using Korean manuals.</li>
+                            <li><strong>Digital Inclusivity:</strong> Transform complex public/administrative documents into conversational forms so anyone can easily access information.</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prevBtn">Prev</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "../js/page.js"></script>
+    <script src = "./js/download.js"></script>
+</body>
+</html>

@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정국호 | AI & DS</title>
     <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+    </style>
 </head>
 <body>
 
@@ -52,86 +76,96 @@
         <!-- 2. 오른쪽 상세 정보 컬럼 -->
         <div class="details-column">
             <h2>AI 기반 뉴스 요약 및 토픽 분석 서비스</h2>
+            
             <div class="sections-wrapper">
-                <section class="resume-section">
-                    <h3>프로젝트 주제</h3>
-                    <p>복잡한 뉴스 속에서도 핵심 이슈와 트렌드를 빠르고 정확하게 파악할 수 있는 서비스 개발</p>
-                    <br><h3>프로젝트 정보 </h3>
-                    <ul class = "section_list">
-                        <li>프로젝트 일정 : 2025.08.08 ~ 2025.08.27</li>
-                        <li>프로젝트 인원 : 4명</li>
-                        <li>개인 기여도 : 50% (코드 작성, 기능구현, 모델 학습)</li>
-                        <li>
-                            Backend: Python, Flask, Flask-SocketIO
-                        </li>
-                        <li>
-                            Frontend: HTML, CSS, JavaScript
-                        </li>
-                        <li>
-                            NLP & Data Analysis
-                        </li>
-                            <ul>
-                                <li>Transformers (Hugging Face): 뉴스 요약</li>
-                                <li>Mecab: 한국어 형태소 분석</li>
-                                <li>Scikit-learn: 토픽 모델링 (LDA)</li>
-                                <li>WordCloud: 데이터 시각화</li>
-                                <li>Crawling: Selenium, BeautifulSoup4</li>
-                            </ul>
-                    </ul>
-                </section>
-
-                <section class="resume-section">
-                    <h3>주요기능</h3>
-                    <ul class = "section_list_1">
-                        <li><strong>실시간 뉴스 데이터 수집:</strong> 사용자가 입력한 키워드와 기간에 맞춰 네이버 뉴스 데이터를 실시간으로 크롤링.</li>
-                        <li><strong>AI 기반 자동 요약:</strong> Transformers 라이브러리의 요약 모델을 활용하여 각 뉴스 기사의 핵심 내용을 자동으로 요약.</li>
-                        <li><strong>토픽 모델링 및 분류:</strong> Mecab과 Scikit-learn의 LDA 모델을 사용하여 수집된 뉴스들을 주요 주제별로 자동 분류.</li>
-                        <li><strong>데이터 시각화:</strong> 각 토픽별 핵심 키워드를 시각적으로 보여주는 워드클라우드 자동 생성.</li>
-                        <li><strong>실시간 처리 과정 시각화:</strong> 데이터 수집부터 분석까지의 전 과정을 프로그레스 바로 시각화하여 사용자에게 실시간 피드백 제공.</li>
-                    </ul>
-                </section>
-
-                <section class="resume-section">
-                    <h3>시도한 모델 </h3>
-                    <ul class = "section_list_1">
-                        <li>KoBert 기반 요약 모델</li>
-                        <li>T5-small 모델</li>
-                        <li>T5-base 모델</li>
-                    </ul><br>
-                    <h3>최종 모델 - T5-base모델</h3>
-                    <p>허깅페이스 내 추출 모델을 통해서 크롤링 데이터를 내용을 추출 진행 후 eenzeenee/t5-base-korean-summarization에서 파인 튜닝을 진행
-                    </p><br>
-                    <p><a href = "https://huggingface.co/fodmrldg/news_summarization_model" class = "none_4">모델 주소 (사용모델)</a></p><br>
-
-                    <br><h3>최종 모델 선정 이유</h3>
-                    <ul class = "section_list_1">
-                        <li>KoBert -> 긴 입력 토큰을 처리할 수 있는 장점이 있었으나, 실제 요약 결과물의 성능이 다소 불안정함</li>
-                        <li>T5 -> T5 모델은 "요약:"과 같은 접두사(prefix)를 입력해야 하는 제약이 있었지만, KoBERT에 비해 일관성 있고 높은 품질의 요약문을 생성 </li>
-                        <li>small -> Base  -> small은 Kobert에 비해 높은 성능을 보여주지만 일반화 능력과 충분한 리소스가 있기에 T5-base모델로 최종 선정함</li>
-                    </ul>
-                </section>
                 
-                <section class="resume-section">
-                    <h3>문제점</h3>
-                    <p>
-                        같은 기자가 같은 내용의 뉴스를 3~4개씩 작성하여 데이터 중복 발생
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "쏟아지는 뉴스 속에서 핵심 트렌드를 놓치지 않도록, 실시간 요약과 토픽 클러스터링을 제공합니다."
                     </p>
-                    <br>
-                    <h3>해결방법</h3>
-                    <p> 기자 별 또는 같은 언로사별로 그룹핑 후 유사도를 구한 후 중복 뉴스를 제거하는 방식으로 구현 예정</p><br>
-                    <h3>최종 인사이트</h3>
-                    <ul class = "section_list">
-                        <li>많은 뉴스를 수집 및 분석을 하는 과정에 오랜 시간이 소모하여 유저가 오랜 시간을 머물러야 하는 문제점이 존재함</li>
-                        <li>하지만 이는 데이터베이스와 연결하여 이전에 검색한 기록을 다시 볼 때는 바로 확인이 가능하도록 구현 예정</li>
+                    
+                    <!-- 대표 이미지 -->
+                    <img class="size_4" src="../files/4번_그림2.png" alt="뉴스 분석 결과 워드클라우드">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2025.08.08 ~ 08.27 (3주)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>4명 / 기여도 50%<br>(NLP 파이프라인, Flask 백엔드)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Transformers(T5)</span><span class="tag">LDA</span><span class="tag">SocketIO</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 관련 링크</strong>
+                            <span><a href="https://huggingface.co/fodmrldg/news_summarization_model" target="_blank" style="color:var(--accent-color)">🤗 Fine-tuned Model</a></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 서비스 목표</h4>
+                    <p>
+                        현대인은 수많은 뉴스에 노출되지만 정작 중요한 맥락을 파악하기 어렵습니다. 
+                        특정 키워드에 대한 최신 뉴스를 <strong>실시간으로 수집하고, 내용을 3줄로 요약하며, 주요 토픽별로 묶어주는</strong> 서비스를 기획했습니다.
+                    </p>
+
+                    <h4>🚧 주요 난제 (Difficulties)</h4>
+                    <ul class="section_list_1">
+                        <li><strong>중복 뉴스 범람:</strong> 속보 경쟁으로 인해 같은 내용의 기사가 여러 언론사에서 3~4개씩 반복 생산되어 분석 품질을 저하시킴.</li>
+                        <li><strong>요약 모델의 일관성:</strong> KoBERT 등 초기 모델 사용 시, 긴 문장에 대해 맥락을 잃거나 문법적으로 어색한 요약문이 생성됨.</li>
+                        <li><strong>응답 지연(Latency):</strong> 자연어 처리(요약+토픽모델링) 과정이 무거워 사용자 대기 시간이 길어지는 문제.</li>
                     </ul>
                 </section>
 
+                <!-- Section 3: Action (Process) -->
                 <section class="resume-section">
-                    <h3>서비스 구조</h3>
-                    <p style ="text-align: center;"><img class ="size_4" src = "../files/4번_그림1.png"><br >Index.html</p>
-                    <p style ="text-align: center;"><img class ="size_4" src = "../files/4번_그림2.png"><br >result.html</p>
-                     <h3>시연영상</h3>
-                    <p style ="text-align: center;"><video  class ="size_4" src="../files/4번_영상.mp4" controls></video></p><br>
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>🧠 NLP 파이프라인 구축</h4>
+                    <ol class="section_list_1">
+                        <li><strong>모델 선정 (KoBERT vs T5):</strong> 
+                            <br>- KoBERT: 긴 입력 처리에 강점은 있으나 생성 결과가 불안정.
+                            <br>- <strong>T5-Base (Selected):</strong> Prompt 기반("요약: ...") 미세 조정을 통해 가장 자연스러운 한국어 생성 능력을 보여 선정함.
+                        </li>
+                        <li><strong>토픽 모델링 (LDA):</strong> Mecab 형태소 분석기로 명사만 추출한 후, Scikit-learn의 LDA를 적용해 뉴스를 주제별로 자동 분류.</li>
+                    </ol>
+
+                    <h4>🔧 트러블슈팅: 데이터 품질 및 UX 개선</h4>
+                    <ul class="section_list_1">
+                        <li><strong>중복 기사 제거:</strong> 언론사별 그룹핑 및 TF-IDF 기반 코사인 유사도를 계산하여, 내용이 80% 이상 일치하는 '복사 붙여넣기'성 기사를 필터링.</li>
+                        <li><strong>실시간 피드백(UX):</strong> 긴 분석 시간을 고려하여 `Flask-SocketIO`를 도입, <em>"현재 데이터 수집 중...", "요약 모델 구동 중..."</em>과 같은 진행 상황을 프로그레스 바로 시각화해 이탈률 감소 유도.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 시연 (Result)</h3>
+                    
+                    <h4>💻 서비스 구조 및 시연</h4>
+                    <p style="text-align: center;">
+                        <img class="size_4" src="../files/4번_그림1.png" alt="메인 페이지 구조">
+                        <br><em>[키워드 입력 메인 화면]</em>
+                    </p>
+                    <p style="text-align: center;">
+                        <video class="size_4" src="../files/4번_영상.mp4" controls></video>
+                    </p>
+
+                    <h4>💡 최종 인사이트</h4>
+                    <ul class="section_list">
+                        <li><strong>Trade-off의 이해:</strong> "높은 정확도"와 "빠른 속도"는 동시에 달성하기 어렵습니다. 실시간 서비스에서는 경량화된 모델이나 캐싱(DB 저장) 전략이 필수적임을 깨달았습니다. 향후에는 한 번 검색된 키워드를 DB에 저장하여 재검색 속도를 0.1초대로 줄이는 개선을 기획하고 있습니다.</li>
+                    </ul>
                 </section>
             </div>
             

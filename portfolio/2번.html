@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정국호 | AI & DS</title>
     <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Local overrides for formatting - can be moved to CSS later */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+        }
+    </style>
 </head>
 <body>
 
@@ -39,7 +62,7 @@
             <h1>정국호</h1>
             <p class="job-title">데이터 분석 & AI</p>
             <ul class="contact-info">   
-                <li>🎂<strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
+                <li>🎂 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
                 <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
                 <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
                 <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
@@ -51,74 +74,95 @@
 
         <!-- 2. 오른쪽 상세 정보 컬럼 -->
         <div class="details-column">
-            <h2>해양 어획량 분석 프로젝트</h2>
+            <h2>해양 어획량 예측 및 분석 프로젝트</h2>
+            
             <div class="sections-wrapper">
-                <section class="resume-section">
-                    <h3>프로젝트 정보 </h3>
-                    <ul class = "section_list">
-                        <li>프로젝트 일정 : 2025.04.30 ~ 2025.05.16</li>
-                        <li>프로젝트 인원 : 4명</li>
-                        <li>개인 기여도 : 70% (코드 작성, 로드맵작성, 가설검증)</li>
-                        <li>관련 스킬 : 딥러닝, 머신러닝, 시계열</li>
-                        <li> 세부스킬 : seaborn, matplotlib, CNN, LSTM, XGB</li>
-                    </ul>
-                    <br>
-                    <h3>프로젝트 주제</h3>
-                    <p>해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축</p>
-                    <br><h3>프로젝트의 어려움 </h3>
-                    <p>1. 어획량 데이터의 심한 변동성으로 분석 신뢰도 확보 어려움. '어획률' 지표 변경 시도했으나 변동성 완전 해소는 어려움.</p><br>
-                    <p>2. 데이터 복잡성으로 다양한 예측 모델 적용에도 RMSE/MAE 지표 높아 예측 정확도 현저히 낮음.</p>
-                    
-                </section>
-
-                <section class="resume-section">
-                    <h3>데이터 접근</h3>
-                    <ol class = "section_list">
-                        <li>실제 위성 사진을 통한 예측</li>
-                        <li>해양사이트에서 제공되어지는 위성 사진 내 수치데이터</li>
-                        <li>기상청에서 제공되는 수치데이터</li>
-                        <li><a href = "https://drive.google.com/drive/folders/1sbcTbpWap7L0V6zI9bR7Hhy7_Q3AeFeW" class = "none">데이터 저장소</a></li>
-                    </ol>
-                    <br>
-                    <h3>데이터 특정 전처리</h3>
-                    <ol class = "section_list">
-                        <li>CNN을 통해 시계열 패턴 파악 </li>
-                        <li>도메인 기반 특성 선택</li>
-                        <li>PCA 기반 차원 축소 </li>
-                        <li>단계적 선택법을 통한 특성 선택</li>
-                    </ol>
-                </section>
-
-                <section class="resume-section">
-                    <h3>문제 (너무 낮은 성능)</h3>
-                    <p>실제 성능이 너무 낮은 문제를 보여줌, 어획량-> 어획률로 변경하였지만 지속적인 낮은 성능을 보여줌</p>
-                    <p><img class ="size" src = "../files/2번_그림1.png"></p>
-                    <p><img class ="size" src = "../files/2번_그림2.png"></p>
-                    
-                </section>
                 
-                <section class="resume-section">
-                    <h3>해결 방법</h3>
-                    <p>
-                        1. 실제 어획량 및 어획률 데이터가 불안정해서 좋지 못한 성능을 보여 줌  -></p><p>이유를 찾아보니 정책 및 인위적으로 어획에 변화를 주었음 
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "해양 기후 데이터와 위성 이미지를 활용하여 어획량 변동성을 예측하고, 정책적/환경적 요인을 분석하였습니다."
                     </p>
-                    <p><img class ="size" src = "../files/2번_그림3.png"></p>
-                    <p><img class ="size" src = "../files/2번_그림4.png"></p>
+                    
+                    <!-- 대표 이미지 (Hero Image) -->
+                    <!-- 사용자 요청: 대표 이미지는 프로젝트를 가장 잘 설명하는 시각 자료입니다. 여기서는 데이터 분석의 복잡성을 보여주는 그래프를 선정했습니다. -->
+                    <img class="size" src="../files/2번_그림6.png" alt="분석 결과 그래프">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2025.04.30 ~ 05.16 (3주)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>4명 / 기여도 70%<br>(코드 구현, 로드맵, 가설검증)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">CNN/LSTM</span><span class="tag">Matplotlib</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 관련 자료</strong>
+                            <span><a href="https://drive.google.com/drive/folders/1sbcTbpWap7L0V6zI9bR7Hhy7_Q3AeFeW" target="_blank" style="color:var(--accent-color)">📂 데이터/분석 자료</a></span>
+                        </div>
+                    </div>
                 </section>
+
+                <!-- Section 2: Situation & Task -->
                 <section class="resume-section">
-                    <h3>해결 방법</h3>
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 분석 배경</h4>
                     <p>
-                        2. 논문을 통해 데이터수가 파라미터 수보다 적으면 과적합 및 훈련이 불가능 할 수 있다고 판단 </p><p>->ML모델(XGB,RF) 사용
+                        해양 기후 요소가 실제 어획량에 미치는 영향을 파악하여, 지속 가능한 어업을 위한 예측 모델을 구축하고자 했습니다.
+                        위성 사진(기상청 데이터)과 수치 데이터를 복합적으로 활용하는 접근을 시도했습니다.
                     </p>
-                    <p><img class ="size" src = "../files/2번_그림5.png"></p>
-                    <p><img class ="size" src = "../files/2번_그림6.png"></p>
-                </section>
-                <section class="resume-section">
-                    <h3>최종 인사이트</h3>
-                    <ul class = "section_list">
-                        <li>해양 환경 변화가 실제 다양한 어류의 어획량 및 어획률에 큰 영향을 주지 못한다는 결론을 얻었습니다. </li>
-                        <li>더 나아가, 복잡하고 현실적인 데이터 구조와 인위적인 개입(조업 및 정책) 등 예측하기 어려운 비선형적인 요인들이 많아 기계학습 모델만으로는 어획량을 예측하는 데 한계를 가진다는 최종 결론을 도출했습니다. </li>
+
+                    <h4>🚧 직면한 문제 (Difficulties)</h4>
+                    <ul class="section_list">
+                        <li><strong>데이터의 심한 변동성:</strong> 어획량 데이터의 표준편차가 매우 커서 학습이 어려움. '어획률'로 지표를 변경해보았으나 여전히 불규칙함.</li>
+                        <li><strong>낮은 예측 성능:</strong> 초기 딥러닝(CNN, LSTM) 모델 적용 시 RMSE/MAE 에러율이 매우 높게 측정됨.</li>
+                        <li><strong>데이터 부족:</strong> 딥러닝 모델의 파라미터 수 대비 학습 데이터 샘플 수가 절대적으로 부족하여 과적합(Overfitting) 발생.</li>
                     </ul>
+                    <p><img class="size" src="../files/2번_그림1.png" alt="낮은 예측 성능 그래프"></p>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>✅ 가설 검증 및 데이터 접근</h4>
+                    <ol class="section_list">
+                        <li><strong>멀티모달 접근:</strong> 위성 사진(CNN)과 시계열 수치 데이터(LSTM)를 결합하여 패턴 분석 시도.</li>
+                        <li><strong>차원 축소 및 특성 선택:</strong> PCA 및 도메인 지식 기반의 특성 선택(Feature Selection)으로 노이즈 제거.</li>
+                        <li><strong>외부 요인 분석:</strong> 단순 기후 데이터 외에 <strong>'정책 및 인위적 조업 활동'</strong>이 어획량에 미치는 영향(이상치)을 분석.</li>
+                    </ol>
+
+                    <h4>🔧 모델링 전략 수정 (Troubleshooting)</h4>
+                    <p>
+                        딥러닝 모델의 과적합 문제를 해결하기 위해, 적은 데이터셋에서도 강건한 <strong>Machine Learning 앙상블 모델(XGBoost, Random Forest)</strong>로 전환하였습니다.
+                    </p>
+                    <p style="text-align: center;">
+                        <img class="size" src="../files/2번_그림5.png" alt="ML 모델 적용 결과">
+                        <em>[기존 DL 모델 대비 안정적인 추세를 보이는 ML 모델 예측]</em>
+                    </p>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 인사이트 (Result)</h3>
+                    
+                    <h4>📊 최종 결론</h4>
+                    <ul class="section_list">
+                        <li><strong>환경 변수의 한계:</strong> 단순 해양 환경(수온, 염분 등) 변화가 실제 어획량에 미치는 영향은 예상보다 낮았습니다.</li>
+                        <li><strong>비선형적 요인 발견:</strong> 어획량은 자연적 요인보다 <strong>정책(금어기, 쿼터제) 및 조업 활동</strong>과 같은 인위적 개입에 더 큰 영향을 받는다는 사실을 도출했습니다.</li>
+                        <li><strong>모델링 교훈:</strong> "무조건적인 최신 딥러닝 기법보다, 데이터의 규모와 특성에 맞는 모델(ML) 선정이 성능 확보에 유리하다"는 점을 확인했습니다.</li>
+                    </ul>
+
+                    <p><img class="size" src="../files/2번_그림4.png" alt="인위적 요인 분석"></p>
                 </section>
             </div>
             

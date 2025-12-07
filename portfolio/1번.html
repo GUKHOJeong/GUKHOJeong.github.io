@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>정국호 | AI & DS</title>
     <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+        /* Placeholder for missing images */
+        .img-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            border: 2px dashed #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,7 +60,6 @@
                         <div class="dropdown-content">
                             <a href="../files/정국호_이력서.pdf" download>이력서 (PDF)</a>
                             <a href="../files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
-                            
                         </div>
                     </div>
                 </li>
@@ -52,36 +88,229 @@
 
         <!-- 2. 오른쪽 상세 정보 컬럼 -->
         <div class="details-column">
+            <h2>기후 기반 가구별 전력 소비량 예측 모델</h2>
+            
             <div class="sections-wrapper">
-                <section class="resume-section">
-                    <h2>1. 성장 과정 및 가치관</h2>
-                    <p>대학교 재학 중, 저는 데이터 분석이라는 분야에서 새로운 전환점을 맞이했습니다. 문과 전공자로서 처음 접한 데이터 분석은 낯설고 도전적인 영역이었으나, 데이터를 통해 세상을 이해하고 문제를 해결하는 힘에 깊이 매료되었습니다. 이를 계기로 학문에 대한 뜨거운 열정을 되찾았고, 데이터 기반의 문제 해석 능력 함양에 몰입하게 되었습니다.</p>
-                    <p>새로운 분야에 대한 갈증을 해소하기 위해 관련 수업을 끊임없이 수강하고 국비 교육 과정까지 활용하며 적극적으로 역량을 개발했습니다. 이러한 주도적인 학습 경험은 저에게 '모르는 것을 배우고 성장하는 과정 자체의 즐거움과 가치'를 깨닫게 해주었으며, 끊임없이 도전하고 배우는 자세를 갖추는 데 중요한 밑거름이 되었습니다.</p>
-                </section>
-
-                <section class="resume-section">
-                    <h2>2. 지원동기</h2>
-                    <p>데이터 분석은 제게 새로운 전환점이자 문제 해결에 대한 깊은 즐거움을 선사했습니다. 단순히 숫자를 다루는 것을 넘어, 데이터를 통해 세상을 이해하고 성장하는 데 기여하며 깊은 애정을 갖게 되었고, 자연스럽게 데이터 기반 문제 해석 능력 함양에 집중하게 되었습니다.</p>
-                    <p>부트캠프에서 ML/DL, CV, LLM 등 다양한 인공지능 분야를 학습하며 AI 모델 개발의 전 과정을 경험했습니다. 이 과정에서 저는 제가 가진 데이터 분석 및 AI 모델 개발 역량이 사용자에게 실제 가치를 제공하는 애플리케이션을 만드는 데 핵심적인 역할을 할 수 있음을 확신했습니다. 특히 복잡한 데이터를 구조화하고 의미 있는 인사이트를 도출하여, 실제 비즈니스 문제에 적용하는 과정에서 가장 큰 보람을 느꼈습니다.</p>
-                    <p>저는 데이터를 통해 사용자 경험을 혁신하고 비즈니스 성장을 이끌고자 하는 열정을 가지고 있습니다. 이러한 열정을 바탕으로 귀사에서 정교한 추천 시스템과 예측 모델 개발을 통해 서비스의 효율성과 사용자 만족도를 극대화하고, 나아가 산업의 새로운 트렌드를 이끌어가는 데 핵심적인 역할을 하고 싶습니다.</p>
-                </section>
-
-                <section class="resume-section">
-                    <h2>3. 성공경험</h2>
-                    <p>기후 변화에 따른 해양 어획량 분포 변화 분석 프로젝트는 해양 기후 요소가 어획량에 미치는 영향을 파악하고 예측 모델을 구축하는 데 중점을 두었습니다. 하지만 어획량 데이터의 심한 변동성과 복잡성으로 인해 RMSE와 MAE 지표가 높게 나타나 예측 정확도 확보에 어려움을 겪었습니다.</p>
-                    <p>이러한 수치적 한계에도 불구하고, 저희 팀은 포기하지 않고 국내외 연구 논문과 사례를 심층적으로 조사하며 문제에 파고들었습니다. 이 과정에서 초기 예상과는 달리, 수온 및 해양 환경 변화보다는 인간의 직접적인 조업 활동 및 정책 개입이 어획량 변화의 주된 원인임을 파악하는 핵심적인 인사이트를 얻었습니다.</p>
-                    <p>이러한 통찰은 단순히 예측 모델의 정확도를 높이는 것을 넘어, 어획량 관리 및 해양 자원 보존을 위한 실질적인 정책 수립 방향을 제시하는 중요한 전환점이 되었습니다. 불확실한 데이터 속에서도 핵심 원인을 규명하고, 문제의 본질을 깊이 이해하는 시야를 넓힐 수 있었습니다. 궁극적으로 이 프로젝트를 통해 저는 데이터의 내재된 한계를 통찰하고, 복잡한 문제의 본질을 파악하여 실질적인 변화를 이끌어낼 수 있는 데이터 기반의 의사결정 역량을 기를 수 있었습니다.</p>
-                </section>
                 
-                <section class="resume-section">
-                    <h2>4. 직무를 위한 준비</h2>
-                    <p>대학교에서 데이터 분석 기초를 다지고 데이터분석전문가(ADsP), SQL개발자(SQLD), 빅데이터분석기사 자격증을 취득하며 문제 해결 역량을 체계적으로 강화했습니다. 이 과정에서 기본적인 통계 지식을 탄탄히 다지고 꼼꼼한 데이터 분석 역량을 길렀습니다.</p>
-                    <p>이후 AI 모델 개발 부트캠프에서 ML/DL, 컴퓨터 비전(CV), LLM 등 다양한 AI 기술을 심층적으로 학습하며 모델 설계부터 튜닝, 배포까지 전 과정을 경험했습니다. 특히 Numpy, Pandas, Scikit-learn 등 주요 라이브러리를 활용한 실무 경험을 쌓으며, 상용 서비스 및 제품 개발에 필요한 역량을 효과적으로 구축했습니다.</p>
-                    <p>이를 바탕으로 개발했던 '표정 연습 애플리케이션' 프로젝트에서는 데이터 전처리부터 모델링 그리고 MLOps를 활용한 서비스화까지 주도했습니다. 이 경험은 추천 모델 개발 역량과 실제 서비스에 ML 모델을 적용하고 서빙하는 능력을 증명합니다. 이러한 데이터 분석, AI 모델 개발 및 상용 서비스화 경험은 ML 모델 서빙, 추천 모델 및 시계열 데이터 개발 업무에 직접적으로 기여하여 서비스의 혁신과 성과 창출에 기여할 준비가 되어 있습니다.</p>
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. 프로젝트 개요 (Overview)</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "기후 데이터와 전력 소비 패턴을 분석하여, 개별 가구의 에너지 효율화를 돕는 정밀 예측 모델입니다."
+                    </p>
+                    
+                    <!-- 대표 이미지 (Meta Image) -->
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <img class="size_4" src="../files/2022.png" alt="전력 소비량 예측 모델 결과" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 기간</strong>
+                            <span>2024.03.31 ~ 2024.04.11 (정형 프로젝트)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 팀 / 역할</strong>
+                            <span>5명 / 기여도 30%<br>전처리, 피처 엔지니어링, 모델링, 성능평가</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ 기술 스택</strong>
+                            <div>
+                                <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">ADA Boost</span><span class="tag">Pandas</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 데이터 출처</strong>
+                            <span>한국전력공사(KEPCO), 기상청(KMA)</span>
+                        </div>
+                    </div>
                 </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. 배경 및 문제 정의 (Challenge)</h3>
+                    
+                    <h4>🧐 배경</h4>
+                    <p>
+                        기후 변화로 인해 전력 수급의 불안정성이 커지고 있습니다. 개별 가구의 전력 소비량을 정확히 예측할 수 있다면, 에너지 절약 유도 및 국가적 전력 수급 안정화에 기여할 수 있습니다.
+                    </p>
+
+                    <h4>🚧 과제 (Task)</h4>
+                    <p>
+                        기온, 습도, 강수량 등 다양한 <strong>기후 데이터(2016~2024)</strong>를 기반으로 전력 소비패턴의 비선형성을 파악하고, 과적합(Overfitting) 없이 미래(2024년) 데이터를 정확히 예측하는 모델을 구축해야 했습니다.
+                    </p>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. 해결 과정 (Process & Action)</h3>
+                    
+                    <h4>📊 데이터 전처리 및 EDA</h4>
+                    <ul class="section_list">
+                        <li><strong>데이터 병합:</strong> KEPCO(전력량), 기상청(기후), 한국가스공사 데이터를 시계열 기준으로 통합.</li>
+                        <li><strong>상관관계 분석:</strong> Heatmap을 통해 기온/습도와 전력 소비량 간의 상관계수 확인 (양의 상관관계 도출).</li>
+                    </ul>
+
+                    <h4>🔍 Feature Engineering 전략 및 선정 이유</h4>
+                    <p>
+                        기후 데이터(기온, 습도 등) 간의 높은 상관관계(다중공선성) 문제를 해결하고, 모델의 과적합을 방지하기 위해 5가지 실험군을 설계했습니다.
+                    </p>
+                    <ul class="section_list_1">
+                        <li><strong>X0 (Baseline):</strong> 모든 변수를 사용하여 기본 성능 측정.</li>
+                        <li><strong>X2 (PCA):</strong> <em>"변수가 너무 많음"</em> -> 주성분 분석으로 차원을 축소하여 정보 손실을 최소화하면서 계산 비용 감소.</li>
+                        <li><strong>X3 (VIF):</strong> <em>"변수 간 중복성 제거"</em> -> 분산 팽창 요인(VIF)이 10 이상인 변수를 제거하여 회귀 모델의 신뢰성 확보.</li>
+                        <li><strong>X4 (Stepwise):</strong> 통계적으로 유의미한 변수만 남겨 모델의 해석력을 높이기 위함.</li>
+                    </ul>
+
+                    <h4>🤖 모델링 검증 및 선정 근거</h4>
+                    <p>
+                        최적의 예측 성능을 찾기 위해 <strong>총 8가지의 다양한 알고리즘</strong>을 전수 비교 실험했습니다.
+                    </p>
+                    <p style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; color: var(--text-color);">📊 모델 성능 비교 평가 (Adjusted R² 기준)</p>
+                    <div style="overflow-x: auto;">
+                        <table class="table" style="width: 100%; margin-bottom: 20px; font-size: 0.85em;">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Model</th>
+                                    <th>Feature Set</th>
+                                    <th>Adjusted R²</th>
+                                    <th>R²</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: rgba(77, 171, 247, 0.2); border: 1px solid var(--accent-color);">
+                                    <td style="font-weight: bold; color: var(--accent-color);">1</td>
+                                    <td style="font-weight: bold; color: var(--accent-color);">XGBoost (Selected)</td>
+                                    <td style="font-weight: bold;">X0</td>
+                                    <td style="font-weight: bold;">0.90</td>
+                                    <td style="font-weight: bold;">0.92</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Random Forest</td>
+                                    <td>X4</td>
+                                    <td>0.87</td>
+                                    <td>0.89</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Ensemble-Stacking</td>
+                                    <td>X4</td>
+                                    <td>0.87</td>
+                                    <td>0.89</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>DecisionTree</td>
+                                    <td>X4</td>
+                                    <td>0.84</td>
+                                    <td>0.86</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>SVR</td>
+                                    <td>X4</td>
+                                    <td>0.82</td>
+                                    <td>0.84</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Neural Network</td>
+                                    <td>X4</td>
+                                    <td>0.82</td>
+                                    <td>0.84</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>AdaBoost</td>
+                                    <td>X4</td>
+                                    <td>0.72</td>
+                                    <td>0.75</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Linear Regressor</td>
+                                    <td>X1</td>
+                                    <td>0.46</td>
+                                    <td>0.51</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Elastic Net</td>
+                                    <td>X1</td>
+                                    <td>0.45</td>
+                                    <td>0.50</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section 4: Result -->
+                <section class="resume-section">
+                    <h3>4. 결과 및 성과 (Result)</h3>
+                    
+                    <h4>📊 1차 검증 (Validation Phase): 일반화 성능 확인</h4>
+                    <p style="margin-bottom: 5px;">
+                        <strong>[Train: ~2021년 | Test: 2022년]</strong>
+                    </p>
+                    <p>
+                        일반적인 기후 패턴을 보인 2022년을 타겟으로 검증했을 때, <strong>XGBoost 모델이 실제 전력 사용 패턴을 매우 정밀하게 추종</strong>하며 높은 예측 정확도를 달성했습니다. (R²: 0.92) 이를 통해 모델의 시계열 패턴 학습 능력을 입증했습니다.
+                    </p>
+                    
+                    <!-- 2022년 결과 이미지 -->
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img class="size_4" src="../files/2022.png" alt="2022년 예측 결과 그래프 (일반화 성공)" style="max-width: 100%; height: auto; border-radius: 6px;">
+                        <p style="color: #888; font-size: 0.9em; margin-top: 5px;">[그림: 2022년 일반화 성능 검증 결과 (높은 정확도)]</p>
+                    </div>
+
+
+                    <h4 style="margin-top: 30px;">📉 2차 검증 (Test Phase): 기후 위기의 영향</h4>
+                    <p style="margin-bottom: 5px;">
+                        <strong>[Train: ~2023년 | Test: 2024년(폭염)]</strong>
+                    </p>
+                    <ul class="section_list">
+                        <li><strong>상황:</strong> 최신 데이터(2023년)까지 학습 후 2024년을 예측했습니다.</li>
+                        <li><strong>결과:</strong> 모델이 전반적인 월별 추세(Monthly Trend)는 따르지만, <strong>여름철 피크 달(7~9월)의 전력 급증</strong>을 과소 예측(Under-prediction)하는 현상이 발견되었습니다.</li>
+                    </ul>
+
+                    <!-- 2024년 결과 이미지 (파일명 2023.png) -->
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img class="size_4" src="../files/2023.png" alt="2024년 예측 결과 그래프 (기후 위기 오차)" style="max-width: 100%; height: auto; border-radius: 6px;">
+                        <p style="color: #888; font-size: 0.9em; margin-top: 5px;">[그림: 2024년 기후 위기 상황에서의 예측 오차 발생 (Train ~23)]</p>
+                    </div>
+                </section>
+
+                <!-- Section 5: Retrospective & Limitations -->
+                <section class="resume-section">
+                    <h3>5. 한계점 및 회고 (Retrospective)</h3>
+                    <h4>📉 예측 오차의 주원인: "2024년 기록적 폭염과 열대야"</h4>
+                    <p>
+                        2차 검증(2024년 데이터)에서 발생한 성능 저하의 원인을 분석한 결과, 학습 데이터(2016~2023) 범위를 벗어난 전례 없는 기후 패턴(Outlier)에 기인함을 확인했습니다. (출처: <a href="https://www.kma.go.kr/kma/news/press.jsp?mode=view&num=1194405" target="_blank" style="color: var(--accent-color);">기상청 2024 여름철 기후분석</a>)
+                    </p>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <ul class="section_list" style="margin: 0;">
+                            <li style="margin-bottom: 10px;">
+                                <strong>1. 역대 1위 평균 기온 (Extreme Heat):</strong><br>
+                                2024년 여름철 평균기온은 <strong>25.6℃</strong>로 평년(23.7℃)보다 <strong>1.9℃</strong> 높았으며, 이는 1973년 기상 관측 이래 <strong>역대 1위</strong>를 기록했습니다. 과거 데이터 패턴으로는 예측하기 힘든 '이상 고온(Outlier)'이었습니다.
+                            </li>
+                            <li style="margin-bottom: 10px;">
+                                <strong>2. 지속적인 열대야 (Tropical Nights):</strong><br>
+                                전국 평균 열대야 일수가 <strong>20.3일</strong>로 평년(6.5일) 대비 <strong>3.1배</strong>나 많았습니다. 이러한 야간 무더위 지속은 가정 내 냉방 가동 시간을 급증시켜, 결국 <strong>여름철 월간 전력 총량</strong>을 모델 예측치보다 크게 상승시켰습니다.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 20px;">
+                        <strong>💡 Insight & Action:</strong> 
+                        단순히 과거 데이터를 학습하는 것만으로는 <strong>'기후 위기(Climate Crisis)'</strong>로 인한 급격한 패턴 변화(Drift)를 따라잡기 어렵다는 한계를 느꼈습니다. 향후에는 최신 기상 예보 데이터를 실시간으로 반영하거나, 이상치 가중치를 부여하는 <strong>'Online Learning'</strong> 파이프라인 도입의 필요성을 도출했습니다.
+                    </p>
+                </section>
+
             </div>
             
-
             <div class="navigation-buttons">
                 <button id="prevBtn">이전</button>
                 <button id="nextBtn">다음</button>

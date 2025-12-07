@@ -3,85 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정국호 | AI & DS</title>
-    <link href = "css\portfolio.css" rel ="stylesheet">
+    <title>Portfolio | 정국호</title>
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/portfolio.css" rel="stylesheet">
+    <!-- Prism.js for Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- ================== 상단 네비게이션 바 ================== -->
     <header>
         <nav>
             <ul>
-                <li><a href="../index.html">나의 고된 행군</a></li>
+                <li><a href="index.html">나의 고된 행군</a></li>
                 <li class="center-links">
-                    <a href="../about.html">자기소개서</a>
-                    <a href="../portfolio.html">포트폴리오</a>
+                    <a href="about.html">자기소개서</a>
+                    <a href="portfolio.html" class="active">포트폴리오</a>
                 </li>
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn">다운로드</button>
                         <div class="dropdown-content">
-                            <a href="../files/정국호_이력서.pdf" download>이력서 (PDF)</a>
-                            <a href="../files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
+                            <a href="files/정국호_이력서.pdf" download>이력서 (PDF)</a>
+                            <a href="files/정국호_포트폴리오.pdf" download>포트폴리오(PDF)</a>
                         </div>
                     </div>
                 </li>
-                <li><a id="language" href="portfolio_en.html">영어</a></li>
+                <li><a id="language" href="portfolio_en.html">EN</a></li>
             </ul>
         </nav>
     </header>
-    
-    <!-- ================== 가로 와이드형 2단 이력서 ================== -->
-    <div class="resume-container">
-        <!-- 1. 왼쪽 프로필 정보 컬럼 -->
-        <div class="profile-column">
-            <img src="files\photo.png" alt="프로필 사진" class="profile-pic">
-            <h1>정국호</h1>
-            <p class="job-title">데이터 분석 & AI</p>
-            <ul class="contact-info">   
-                <li>🎂 <strong>생년월일:</strong> 1999년 09월 14일 (만 25세)</li>
-                <li>📞 <strong>연락처:</strong> 010-4138-5728</li>
-                <li>📧 <strong>이메일:</strong> mrgjh13579@gmail.com</li>
-                <li>📍 <strong>주소:</strong> 부산광역시 사상구 주례로</li>
-                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">여기로오세요~</a></li>
-                <li>🎖️ <strong>병역:</strong> 육군 병장 만기 제대<br>(2019.03.04 - 2020.10.07)</li>
-                <li>💡 <strong>소개:</strong> 호기심과 열정으로 데이터의 깊이를 탐색하는 데이터 사이언티스트 입니다.</li>
-            </ul>
-        </div>
 
-        <!-- 2. 오른쪽 상세 정보 컬럼 -->
-        <div class="details-column">
-            <section>
-                <h2><a href="#" class = "none">1.기후에 따른 전력량 분석 및 예측 모델(작업중) </a></h2>
-                <div class="entry">
-                    <div class="date">2025.03 - 2025.04</div>
-                    <div class="details"><strong>활용기술</strong><p>Python,XGB,LR,RF 등 기계학습 모델</p></div>
+    <div class="portfolio-container">
+        <h1 class="page-title">프로젝트 쇼케이스</h1>
+        
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>1. 전력 사용량 예측 AI</h3>
+                    <p class="date">2025.03 - 2025.04</p>
+                    <p class="desc">기후 변수에 따른 전력 수요 예측 모델 (XGBoost)</p>
+                    <div class="tags">
+                        <span>Python</span><span>XGBoost</span><span>Machine Learning</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/1번.html'">상세 보기</button>
                 </div>
-            </section>
+            </div>
 
-                        <section>
-                <h2><a href="portfolio/2번.html" class = "none">2.해양 어획량 분석 프로젝트</a> </h2>
-                <div class="entry">
-                    <div class="date">2025.04 - 2025.05</div>
-                    <div class="details"><strong>활용기술</strong><p>Python,XGB,RF,CNN,RNN,LSTM 등 ML/DL 모델</p></div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>2. 해양 어획량 분석 프로젝트</h3>
+                    <p class="date">2025.04 - 2025.05</p>
+                    <p class="desc">CNN-LSTM 기반 시계열 어획량 예측</p>
+                    <div class="tags">
+                        <span>Deep Learning</span><span>CNN-LSTM</span><span>Time Series</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/2번.html'">상세 보기</button>
                 </div>
-            </section>
-                        <section>
-                <h2><a href="portfolio/3번.html" class = "none">3.표정 연습 애플리케이션 </a> </h2>
-                <div class="entry">
-                    <div class="date">2025.06 - 2025.07</div>
-                    <div class="details"><strong>활용기술</strong><p>Python , Flask , Flutter , Yolo , Pre-trained CNN</p></div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>3. 표정 연습 & 감정 분석 챗봇</h3>
+                    <p class="date">2025.06 - 2025.07</p>
+                    <p class="desc">EfficientNet 기반 감정 인식 및 Flutter 앱 연동</p>
+                    <div class="tags">
+                        <span>Flutter</span><span>Flask</span><span>Computer Vision</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/3번.html'">상세 보기</button>
                 </div>
-            </section>
-            <section>
-                <h2><a href="portfolio/4번.html" class = "none">4.AI 기반 뉴스 요약 및 토픽 분석 서비스  </a> </h2>
-                <div class="entry">
-                    <div class="date">2025.08 - 2025.08</div>
-                    <div class="details"><strong>활용기술</strong><p>python, Flask, Html, transformers</p></div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>4. 실시간 뉴스 분석 서비스</h3>
+                    <p class="date">2025.08 - 2025.08</p>
+                    <p class="desc">T5 요약 및 LDA 토픽 모델링 대시보드</p>
+                    <div class="tags">
+                        <span>NLP</span><span>Transformers</span><span>Flask</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/4번.html'">상세 보기</button>
                 </div>
-            </section>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>5. 보이스피싱 탐지 AI 에이전트</h3>
+                    <p class="date">2025.09 - 2025.09</p>
+                    <p class="desc">LangGraph & RAG 기반 실시간 사기 탐지</p>
+                    <div class="tags">
+                        <span>LangGraph</span><span>RAG</span><span>FastAPI</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/5번.html'">상세 보기</button>
+                </div>
+            </div>
+            
+             <!-- Project 6 -->
+            <div class="project-card">
+                <div class="card-content">
+                    <h3>6. ManuAI-Talk (제품 설명서 RAG)</h3>
+                    <p class="date">2025.09 - 2025.12</p>
+                    <p class="desc">PDF 매뉴얼 기반 Q&A 챗봇 서비스</p>
+                    <div class="tags">
+                        <span>RAG</span><span>FastAPI</span><span>LangGraph</span><span>Chatbot</span>
+                    </div>
+                    <button class="open-modal-btn" onclick="location.href='portfolio/6번.html'">상세 보기</button>
+                </div>
+            </div>
         </div>
     </div>
-    <script src = "./js/download.js"></script>
+
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUKHO Jeong | AI & DS</title>
+    <link href = "../css/port_file.css" rel ="stylesheet">
+    <style>
+        /* Shared Project Meta Grid */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .meta-item strong { color: var(--accent-color); display: block; margin-bottom: 5px; font-size: 0.9em; }
+        .meta-item span { color: var(--text-color); font-size: 0.95em; }
+        .tag {
+            display: inline-block;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            border: 1px solid #555;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================== Navigation Bar ================== -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">My Hard March</a></li>
+                <li class="center-links">
+                    <a href="../about.html">About Me</a>
+                    <a href="../portfolio_en.html">Portfolio</a>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Download</button>
+                        <div class="dropdown-content">
+                            <a href="../files/정국호_이력서.pdf" download>Resume (PDF)</a>
+                            <a href="../files/정국호_포트폴리오.pdf" download>Portfolio (PDF)</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a id="language" href="5번.html">Korean</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ================== Wide 2-Column Layout ================== -->
+    <div class="resume-container">
+        <!-- 1. Left Profile Column -->
+        <div class="profile-column">
+            <img src="../files/photo.png" alt="Profile Picture" class="profile-pic">
+            <h1>GUKHO Jeong</h1>
+            <p class="job-title">Data Analyst & AI Engineer</p>
+            <ul class="contact-info">   
+                <li>🎂 <strong>Birth:</strong> Sep 14, 1999 (Age 25)</li>
+                <li>📞 <strong>Phone:</strong> 010-4138-5728</li>
+                <li>📧 <strong>Email:</strong> mrgjh13579@gmail.com</li>
+                <li>📍 <strong>Address:</strong> Jurye-ro, Sasang-gu, Busan</li>
+                <li>🔗 <strong>Github:</strong> <a href="https://github.com/GUKHOJeong/Project" target="_blank">View Repository</a></li>
+                <li>🎖️ <strong>Military:</strong> ROK Army Sergeant (Discharged)<br>(2019.03.04 - 2020.10.07)</li>
+                <li>💡 <strong>Intro:</strong> A Data Scientist exploring the depths of data with curiosity and passion.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Right Details Column -->
+        <div class="details-column">
+            <h2>Real-time Voice Phishing Detection AI Agent</h2>
+            
+            <div class="sections-wrapper">
+                
+                <!-- Section 1: Overview & Meta -->
+                <section class="resume-section active">
+                    <h3>1. Overview</h3>
+                    <p style="padding-left:0; font-style: italic; color: #bbb;">
+                        "AI analyzes calls in real-time to prevent wire transfer inducement and provides response guides against increasingly sophisticated voice phishing."
+                    </p>
+                    
+                    <!-- Hero Image -->
+                    <img class="size_4" src="../files/5번_그림5.png" alt="Final Detection Report">
+
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <strong>📅 Duration</strong>
+                            <span>2025.09.05 ~ 09.25 (3 weeks)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>👥 Team / Role</strong>
+                            <span>5 Members / Contribution 40%<br>(LangGraph Design, Hybrid RAG, Optimization)</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🛠️ Tech Stack</strong>
+                            <div>
+                                <span class="tag">FastAPI</span><span class="tag">LangGraph</span><span class="tag">WebSocket</span><span class="tag">FAISS/BM25</span><span class="tag">Clova Speech</span>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <strong>🔗 Key Features</strong>
+                            <span>Real-time Analysis Agent<br>Psychology Analysis & Guidance</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Situation & Task -->
+                <section class="resume-section">
+                    <h3>2. Challenge (Situation & Task)</h3>
+                    
+                    <h4>🧐 Intent</h4>
+                    <p>
+                        Voice phishing damage is continuously increasing, and the <strong>20-30s generation</strong> is particularly vulnerable to sophisticated methods like 'Prosecutor Impersonation'. Beyond simple warnings, we needed an agent that calculates <strong>logical grounds (similar damage cases) for "Why this is phishing"</strong> to persuade the victim.
+                    </p>
+
+                    <h4>🚧 Difficulties</h4>
+                    <ul class="section_list">
+                        <li><strong>Low Relevance:</strong> Standard RAG (Vector Search) failed to match specific proper nouns like "Prosecutor's Office" or exact methods, leading to irrelevant guidance.</li>
+                        <li><strong>Latency:</strong> Delays in STT conversion and LLM response speed in real-time calls caused missed timings.</li>
+                        <li><strong>Context Maintenance:</strong> Difficulty in managing tokens to process the entire context without missing key points during long calls.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3: Action (Process) -->
+                <section class="resume-section">
+                    <h3>3. Process & Action</h3>
+                    
+                    <h4>🧠 LangGraph-based Agent Design</h4>
+                    <p>
+                        We built an <strong>Agentic Workflow</strong> that judges situations and controls the flow, rather than simple Q&A.
+                    </p>
+                    <p style="text-align: center;">
+                        <img class="size_4" src="../files/5번_그림2.png" alt="LangGraph Architecture">
+                        <br><em>[Detect -> Psychology -> RAG -> Info Flow]</em>
+                    </p>
+                    <ol class="section_list">
+                        <li><strong>Risk Scoring:</strong> Immediate warning trigger upon detecting keywords like 'Transfer', 'Password', 'App Installation'.</li>
+                        <li><strong>Psychological Analysis:</strong> Analyzed the panicked victim's psychological state to generate empathetic responses first.</li>
+                    </ol>
+
+                    <h4>🔍 Hybrid RAG & Rerank Optimization</h4>
+                    <p>
+                        Advanced the search pipeline for accurate similar case retrieval.
+                    </p>
+                    <ul class="section_list">
+                        <li><strong>Hybrid Search:</strong> Ensembled <strong>BM25</strong> (strong in keyword matching) and <strong>FAISS</strong> (strong in semantic search) to improve Recall.</li>
+                        <li><strong>Cohere Rerank:</strong> Re-ranked initially retrieved documents by contextual relevance to provide the best context to the LLM.</li>
+                        <li><strong>Chunk Optimization:</strong> Quantitatively evaluated various chunk sizes using the RAGAS framework.</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px; margin-bottom: 5px; font-weight: bold; color: var(--text-color);">📊 RAGAS Performance Evaluation (Model & Chunk Size)</p>
+                    <div style="overflow-x: auto;">
+                        <table class="table" style="width: 100%; margin-bottom: 20px; font-size: 0.85em;">
+                            <thead>
+                                <tr>
+                                    <th>Model</th>
+                                    <th>Chunk Size</th>
+                                    <th>Context Precision</th>
+                                    <th>Context Recall</th>
+                                    <th>Faithfulness</th>
+                                    <th>Answer Relevancy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BM25 Rows -->
+                                <tr><td>BM25</td><td>250</td><td>1.0</td><td>0.6905</td><td>0.7196</td><td>0.7667</td></tr>
+                                <tr><td>BM25</td><td>500</td><td>1.0</td><td>0.9167</td><td>0.8091</td><td>0.7703</td></tr>
+                                <tr><td>BM25</td><td>750</td><td>1.0</td><td>0.9167</td><td>0.7487</td><td>0.7675</td></tr>
+                                <tr><td>BM25</td><td>1000</td><td>1.0</td><td>0.9167</td><td>0.8159</td><td>0.7602</td></tr>
+                                
+                                <!-- Ensemble Rows (Highlight Winner) -->
+                                <tr><td>Ensemble</td><td>250</td><td>1.0</td><td>0.9167</td><td>0.7660</td><td>0.7765</td></tr>
+                                <tr><td>Ensemble</td><td>500</td><td>1.0</td><td>0.9167</td><td>0.7556</td><td>0.7781</td></tr>
+                                <tr><td>Ensemble</td><td>750</td><td>1.0</td><td>0.9167</td><td>0.7507</td><td>0.7746</td></tr>
+                                <tr style="background-color: rgba(77, 171, 247, 0.2); border: 1px solid var(--accent-color);">
+                                    <td style="color: var(--accent-color); font-weight: bold;">Ensemble</td>
+                                    <td style="color: var(--accent-color); font-weight: bold;">1000 (Selected)</td>
+                                    <td style="font-weight: bold;">1.0</td>
+                                    <td style="font-weight: bold;">0.9167</td>
+                                    <td style="font-weight: bold;">0.9278</td>
+                                    <td style="font-weight: bold;">0.7790</td>
+                                </tr>
+                                
+                                <!-- Retriever Rows -->
+                                <tr><td>Retriever</td><td>250</td><td>1.0</td><td>0.9167</td><td>0.7569</td><td>0.7720</td></tr>
+                                <tr><td>Retriever</td><td>500</td><td>1.0</td><td>0.6905</td><td>0.6791</td><td>0.7805</td></tr>
+                                <tr><td>Retriever</td><td>750</td><td>1.0</td><td>0.7738</td><td>0.5944</td><td>0.7848</td></tr>
+                                <tr><td>Retriever</td><td>1000</td><td>1.0</td><td>0.9167</td><td>0.6009</td><td>0.7612</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.9em; color: #aaa;">
+                        * <strong>Result Analysis:</strong> The <strong>Ensemble(Hybrid) + Chunk 1000</strong> combination showed superior performance in Faithfulness (0.9278) and Recall (0.9167) compared to single models, and was selected as the final model.
+                    </p>
+                </section>
+
+                <!-- Section 4: Result & Insight -->
+                <section class="resume-section">
+                    <h3>4. Result & Insight</h3>
+                    
+                    <h4>🚀 Performance Improvement (Troubleshooting)</h4>
+                    <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 5px;">
+                        <strong style="color: coral;">Solving STT Latency</strong>
+                        <p style="margin-top: 5px; font-size: 0.95em;">
+                            Initial OpenAI Whisper was too slow for real-time -> 
+                            Switched to <strong>NCP (Naver Cloud Platform) Clova Speech</strong>, reducing <strong>latency by over 50%</strong> while maintaining Korean accuracy.
+                        </p>
+                    </div>
+
+                    <h4>💻 Service Demo</h4>
+                    <div style="display: flex; gap: 10px; overflow-x: auto;">
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림3.png" alt="Voice Input">
+                            <br><small>1. Call Voice Input</small>
+                        </div>
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림4.png" alt="Risk Detection">
+                            <br><small>2. Risk Keyword Warning</small>
+                        </div>
+                        <div style="flex:1; min-width: 200px; text-align: center;">
+                            <img class="size_4" style="height: 180px;" src="../files/5번_그림5.png" alt="Final Report">
+                            <br><small>3. Final Response Guide</small>
+                        </div>
+                    </div>
+
+                    <h4>💡 Insight (Retrospective)</h4>
+                    <ul class="section_list">
+                        <li><strong>SaaS API Pros/Cons:</strong> While commercial APIs like Clova Speech offer great performance, cost issues can arise. I plan to fine-tune local models (e.g., Distil-Whisper) for cost efficiency in the future.</li>
+                        <li><strong>Potential of Agents:</strong> I learned that agent systems performing complex judgment and actions are much more powerful for real-world problem solving than simple chatbots.</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prevBtn">Prev</button>
+                <button id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "../js/page.js"></script>
+    <script src = "./js/download.js"></script>
+</body>
+</html>
