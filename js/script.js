@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing Effect
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const text = "데이터 분석 & AI 전문가";
+        const text = "AI서비스개발자";
         let index = 0;
         function type() {
             if (index < text.length) {
